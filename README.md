@@ -36,6 +36,17 @@ plain html elements. no classes.
 
 colors are `--tux-*` custom properties. override them.
 
+## dark mode
+
+auto-adapts to `prefers-color-scheme`. to override manually:
+
+```html
+<html data-theme="dark">
+<html data-theme="light">
+```
+
+omit `data-theme` to follow system preference.
+
 ## license
 
 MIT

@@ -1,48 +1,133 @@
 /*! tux.css v0.1.0 | MIT License | github.com/elee1766/tuxcss */
 
 /* -- tokens -- */
+/* sizing (constant across themes) */
 :root {
   --tux-font: "Cousine", "JetBrains Mono", "IBM Plex Mono",
     "Fira Code", "Source Code Pro", ui-monospace, monospace;
-  --tux-bg-base: #f3f4f6;
-  --tux-bg-surface: #fff;
-  --tux-bg-raised: #f9fafb;
-  --tux-bg-muted: #e5e7eb;
-  --tux-bg-overlay: #111827;
-  --tux-text: #374151;
-  --tux-text-secondary: #4b5563;
-  --tux-text-tertiary: #6b7280;
-  --tux-text-muted: #9ca3af;
-  --tux-text-faint: #d1d5db;
-  --tux-text-inverse: #fff;
-  --tux-border: #e5e7eb;
-  --tux-border-subtle: #f3f4f6;
-  --tux-border-strong: #d1d5db;
-  --tux-primary: #2563eb;
-  --tux-primary-hover: #1d4ed8;
-  --tux-primary-strong: #1e40af;
-  --tux-primary-soft: #3b82f6;
-  --tux-primary-subtle: #dbeafe;
-  --tux-success: #16a34a;
-  --tux-success-soft: #22c55e;
-  --tux-success-subtle: #f0fdf4;
-  --tux-success-muted: #bbf7d0;
-  --tux-warning: #ca8a04;
-  --tux-warning-soft: #eab308;
-  --tux-warning-subtle: #fef9c3;
-  --tux-warning-muted: #854d0e;
-  --tux-error: #dc2626;
-  --tux-error-soft: #ef4444;
-  --tux-error-hover: #b91c1c;
-  --tux-error-subtle: #fef2f2;
-  --tux-interactive: #4b5563;
-  --tux-interactive-hover: #374151;
-  --tux-interactive-soft: #6b7280;
   --tux-text-xs: 0.75rem;
   --tux-text-sm: 0.875rem;
   --tux-text-micro: 10px;
   --tux-max-width: 80rem;
   --tux-radius-sm: 2px;
+}
+
+/* light (default) -- warm gruvbox-inspired */
+:root, [data-theme="light"] {
+  --tux-bg-base: #f2e5bc;
+  --tux-bg-surface: #fbf1c7;
+  --tux-bg-raised: #ebdbb2;
+  --tux-bg-muted: #d5c4a1;
+  --tux-bg-overlay: #282828;
+  --tux-text: #3c3836;
+  --tux-text-secondary: #504945;
+  --tux-text-tertiary: #665c54;
+  --tux-text-muted: #928374;
+  --tux-text-faint: #bdae93;
+  --tux-text-inverse: #fbf1c7;
+  --tux-border: #d5c4a1;
+  --tux-border-subtle: #ebdbb2;
+  --tux-border-strong: #a89984;
+  --tux-primary: #458588;
+  --tux-primary-hover: #076678;
+  --tux-primary-strong: #076678;
+  --tux-primary-soft: #83a598;
+  --tux-primary-subtle: #e5ece6;
+  --tux-success: #79740e;
+  --tux-success-soft: #98971a;
+  --tux-success-subtle: #eef0d5;
+  --tux-success-muted: #b8bb26;
+  --tux-warning: #b57614;
+  --tux-warning-soft: #d79921;
+  --tux-warning-subtle: #f5edcf;
+  --tux-warning-muted: #af3a03;
+  --tux-error: #cc241d;
+  --tux-error-soft: #fb4934;
+  --tux-error-hover: #9d0006;
+  --tux-error-subtle: #fce1de;
+  --tux-interactive: #504945;
+  --tux-interactive-hover: #3c3836;
+  --tux-interactive-soft: #665c54;
+  color-scheme: light;
+}
+
+/* dark -- auto via prefers-color-scheme or manual via data-theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --tux-bg-base: #1d2021;
+    --tux-bg-surface: #282828;
+    --tux-bg-raised: #3c3836;
+    --tux-bg-muted: #504945;
+    --tux-bg-overlay: #1d2021;
+    --tux-text: #ebdbb2;
+    --tux-text-secondary: #d5c4a1;
+    --tux-text-tertiary: #a89984;
+    --tux-text-muted: #928374;
+    --tux-text-faint: #665c54;
+    --tux-text-inverse: #1d2021;
+    --tux-border: #504945;
+    --tux-border-subtle: #3c3836;
+    --tux-border-strong: #665c54;
+    --tux-primary: #83a598;
+    --tux-primary-hover: #8ec07c;
+    --tux-primary-strong: #458588;
+    --tux-primary-soft: #83a598;
+    --tux-primary-subtle: #323b35;
+    --tux-success: #b8bb26;
+    --tux-success-soft: #98971a;
+    --tux-success-subtle: #2e2e1f;
+    --tux-success-muted: #79740e;
+    --tux-warning: #fabd2f;
+    --tux-warning-soft: #d79921;
+    --tux-warning-subtle: #352e1e;
+    --tux-warning-muted: #fe8019;
+    --tux-error: #fb4934;
+    --tux-error-soft: #cc241d;
+    --tux-error-hover: #fb4934;
+    --tux-error-subtle: #3c2120;
+    --tux-interactive: #a89984;
+    --tux-interactive-hover: #d5c4a1;
+    --tux-interactive-soft: #928374;
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  --tux-bg-base: #1d2021;
+  --tux-bg-surface: #282828;
+  --tux-bg-raised: #3c3836;
+  --tux-bg-muted: #504945;
+  --tux-bg-overlay: #1d2021;
+  --tux-text: #ebdbb2;
+  --tux-text-secondary: #d5c4a1;
+  --tux-text-tertiary: #a89984;
+  --tux-text-muted: #928374;
+  --tux-text-faint: #665c54;
+  --tux-text-inverse: #1d2021;
+  --tux-border: #504945;
+  --tux-border-subtle: #3c3836;
+  --tux-border-strong: #665c54;
+  --tux-primary: #83a598;
+  --tux-primary-hover: #8ec07c;
+  --tux-primary-strong: #458588;
+  --tux-primary-soft: #83a598;
+  --tux-primary-subtle: #323b35;
+  --tux-success: #b8bb26;
+  --tux-success-soft: #98971a;
+  --tux-success-subtle: #2e2e1f;
+  --tux-success-muted: #79740e;
+  --tux-warning: #fabd2f;
+  --tux-warning-soft: #d79921;
+  --tux-warning-subtle: #352e1e;
+  --tux-warning-muted: #fe8019;
+  --tux-error: #fb4934;
+  --tux-error-soft: #cc241d;
+  --tux-error-hover: #fb4934;
+  --tux-error-subtle: #3c2120;
+  --tux-interactive: #a89984;
+  --tux-interactive-hover: #d5c4a1;
+  --tux-interactive-soft: #928374;
+  color-scheme: dark;
 }
 
 /* -- reset -- */

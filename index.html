@@ -20,6 +20,8 @@
     </nav>
     <nav>
       <a href="https://github.com/elee1766/tuxcss">github</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#" id="theme-toggle">dark</a>
     </nav>
   </header>
 
@@ -648,5 +650,30 @@ console.log(greet("world"));</code></pre>
     <p>tux.css -- terminal-utilitarian css. <a href="https://github.com/elee1766/tuxcss">source on github</a>.</p>
   </footer>
 
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    // check saved preference, then system preference
+    const saved = localStorage.getItem('tux-theme');
+    if (saved) {
+      root.setAttribute('data-theme', saved);
+    }
+    function update() {
+      const current = root.getAttribute('data-theme');
+      const isDark = current === 'dark' ||
+        (!current && matchMedia('(prefers-color-scheme: dark)').matches);
+      toggle.textContent = isDark ? 'light' : 'dark';
+    }
+    update();
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const isDark = toggle.textContent === 'dark';
+      const next = isDark ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('tux-theme', next);
+      update();
+    });
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', update);
+  </script>
 </body>
 </html>
