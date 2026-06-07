@@ -286,7 +286,7 @@ input:is([type="checkbox"], [type="radio"]) {
   vertical-align: middle;
 }
 
-textarea { resize: vertical; min-height: 4rem; }
+textarea { resize: vertical; min-height: 4rem; line-height: 1.8; }
 
 select {
   cursor: pointer;
