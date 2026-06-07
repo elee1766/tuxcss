@@ -14,10 +14,10 @@
 
 /* light (default) -- warm gruvbox-inspired */
 :root, [data-theme="light"] {
-  --tux-bg-base: #efebe0;
-  --tux-bg-surface: #f7f4ed;
-  --tux-bg-raised: #e8e4d9;
-  --tux-bg-muted: #d5d0c4;
+  --tux-bg-base: #edebe8;
+  --tux-bg-surface: #f5f4f1;
+  --tux-bg-raised: #e5e3e0;
+  --tux-bg-muted: #d3d1cd;
   --tux-bg-overlay: #282828;
   --tux-text: #3c3836;
   --tux-text-secondary: #504945;
@@ -190,8 +190,8 @@ body > header {
   user-select: none;
 }
 
-body > header a { color: var(--tux-text-muted); text-decoration: none; }
-body > header a:hover { color: var(--tux-text-secondary); text-decoration: none; }
+body > header a { color: var(--tux-text-muted); text-decoration: none; padding: 0; }
+body > header a:hover { color: var(--tux-text-secondary); text-decoration: none; background: none; }
 
 main {
   max-width: var(--tux-max-width);
