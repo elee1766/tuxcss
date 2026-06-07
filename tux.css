@@ -158,12 +158,14 @@ body {
   text-transform: lowercase;
 }
 
-h1 { font-size: 1.5rem; margin-bottom: 0.75rem; }    /* 24px */
-h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }   /* 20px */
-h3 { font-size: 1rem; margin-bottom: 0.5rem; }       /* 16px */
-h4 { font-size: var(--tux-text-sm); margin-bottom: 0.25rem; } /* 14px */
+h1 { font-size: 1.5rem; margin-bottom: 0.75rem; margin-top: 1.5rem; }  /* 24px */
+h2 { font-size: 1.25rem; margin-bottom: 0.5rem; margin-top: 1.25rem; } /* 20px */
+h3 { font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1rem; }      /* 16px */
+h4 { font-size: var(--tux-text-sm); margin-bottom: 0.25rem; margin-top: 0.75rem; } /* 14px */
 h5 { font-size: var(--tux-text-xs); color: var(--tux-text-secondary); margin-bottom: 0.25rem; } /* 12px */
 h6 { font-size: var(--tux-text-xs); color: var(--tux-text-tertiary); margin-bottom: 0.25rem; }  /* 12px */
+
+:is(h1, h2, h3, h4):first-child { margin-top: 0; }
 
 p { margin-bottom: 0.5rem; color: var(--tux-text-secondary); }
 small { font-size: var(--tux-text-micro); color: var(--tux-text-muted); }
@@ -219,7 +221,7 @@ nav a:is([aria-current="page"], .active) { color: var(--tux-text); }
 :is(section, article, aside) {
   background: var(--tux-bg-surface);
   border: 1px solid var(--tux-border);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 :is(section, article, aside) > header {
