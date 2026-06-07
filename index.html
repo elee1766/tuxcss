@@ -17,7 +17,9 @@
       <span style="color: var(--tux-text-faint)">/</span>
       <a href="#elements">elements</a>
       <span style="color: var(--tux-text-faint)">/</span>
-      <a href="#dashboard">dashboard</a>
+      <a href="#components">components</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#dashboard">layouts</a>
       <span style="color: var(--tux-text-faint)">/</span>
       <a href="#forms">forms</a>
     </nav>
@@ -260,7 +262,151 @@ console.log(greet("world"));</code></pre>
     </section>
 
     <!-- ============================================================
-         DASHBOARD DEMO
+         COMPONENTS
+         ============================================================ -->
+    <h2 id="components">components</h2>
+
+    <!-- tabs -->
+    <h3>tabs (aria)</h3>
+    <section>
+      <header><span>tab panel</span></header>
+      <div>
+        <div role="tablist" aria-label="service tabs">
+          <button role="tab" aria-selected="true" aria-controls="tab-overview" id="t-overview" onclick="switchTab(this)">overview</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-config" id="t-config" onclick="switchTab(this)">config</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-logs" id="t-logs" onclick="switchTab(this)">logs</button>
+        </div>
+        <div role="tabpanel" id="tab-overview" aria-labelledby="t-overview">
+          <p>service is running. 3/3 replicas healthy. last deployed 2h ago.</p>
+        </div>
+        <div role="tabpanel" id="tab-config" aria-labelledby="t-config" hidden>
+          <p>port: 8080, runtime: go 1.22, auto-scale: enabled</p>
+        </div>
+        <div role="tabpanel" id="tab-logs" aria-labelledby="t-logs" hidden>
+          <p>14:32:01 [info] request handled in 42ms<br>
+             14:32:00 [info] health check passed</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- toolbar -->
+    <h3>toolbar</h3>
+    <section>
+      <header><span>text editor toolbar</span></header>
+      <div>
+        <div role="toolbar" aria-label="formatting">
+          <button aria-pressed="true">bold</button>
+          <button aria-pressed="false">italic</button>
+          <button aria-pressed="false">code</button>
+          <button>link</button>
+          <button>quote</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- toggle switch -->
+    <h3>toggle switch</h3>
+    <section>
+      <header><span>switches</span></header>
+      <div>
+        <div data-flex="column" style="gap: 0.75rem">
+          <button role="switch" aria-checked="true" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked')==='true'?'false':'true')">auto-refresh</button>
+          <button role="switch" aria-checked="false" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked')==='true'?'false':'true')">notifications</button>
+          <button role="switch" aria-checked="true" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked')==='true'?'false':'true')">compact mode</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- chips -->
+    <h3>chips / badges</h3>
+    <section>
+      <header><span>inline labels</span></header>
+      <div>
+        <p>
+          <span data-chip>default</span>
+          <span data-chip="info">info</span>
+          <span data-chip="success">deployed</span>
+          <span data-chip="warning">degraded</span>
+          <span data-chip="error">failed</span>
+        </p>
+        <p>a service <span data-chip="success">v2.14</span> was deployed with <span data-chip="warning">1 warning</span> and <span data-chip="error">0 errors</span>.</p>
+      </div>
+    </section>
+
+    <!-- flex -->
+    <h3>flex layouts</h3>
+    <section>
+      <header><span>data-flex utility</span></header>
+      <div>
+        <h4>row with space-between</h4>
+        <div data-flex="row between center" style="border: 1px dashed var(--tux-border); padding: 0.5rem;">
+          <span>left</span>
+          <span>center</span>
+          <span>right</span>
+        </div>
+        <br>
+        <h4>wrapping row</h4>
+        <div data-flex="wrap">
+          <span data-chip>tag-1</span>
+          <span data-chip>tag-2</span>
+          <span data-chip>tag-3</span>
+          <span data-chip>tag-4</span>
+          <span data-chip>tag-5</span>
+          <span data-chip>tag-6</span>
+          <span data-chip>tag-7</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- aria states -->
+    <h3>aria states</h3>
+    <section>
+      <header><span>form validation &amp; states</span></header>
+      <div>
+        <div data-grid="2">
+          <div>
+            <label>valid input</label>
+            <input type="text" value="hello" aria-invalid="false">
+          </div>
+          <div>
+            <label>invalid input</label>
+            <input type="text" value="bad value" aria-invalid="true">
+          </div>
+        </div>
+        <br>
+        <h4>busy state</h4>
+        <div aria-busy="true" style="padding: 0.5rem; border: 1px dashed var(--tux-border);">
+          this region is loading... (aria-busy="true" dims content)
+        </div>
+        <br>
+        <h4>disabled state</h4>
+        <div data-flex="row">
+          <button aria-disabled="true">aria-disabled</button>
+          <button disabled>native disabled</button>
+        </div>
+        <br>
+        <h4>sort indicators</h4>
+        <table>
+          <thead>
+            <tr>
+              <th aria-sort="ascending">name</th>
+              <th aria-sort="descending">latency</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>api-gateway</td><td>42ms</td><td><span data-chip="success">ok</span></td></tr>
+            <tr><td>auth-service</td><td>28ms</td><td><span data-chip="success">ok</span></td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h4>status region</h4>
+        <div role="status" aria-live="polite">last updated: 14:32:01 utc</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LAYOUTS
          ============================================================ -->
     <h2 id="dashboard">layouts</h2>
     <p>use <code>data-layout</code> for page-level layouts and <code>data-grid</code> for content grids. all collapse to single column on mobile.</p>
@@ -780,6 +926,19 @@ console.log(greet("world"));</code></pre>
   <footer>
     <p>tux.css -- terminal-utilitarian css. <a href="https://github.com/elee1766/tuxcss">source on github</a>.</p>
   </footer>
+
+  <script>
+    // tab switching
+    function switchTab(tab) {
+      const tablist = tab.closest('[role="tablist"]');
+      tablist.querySelectorAll('[role="tab"]').forEach(function(t) {
+        t.setAttribute('aria-selected', 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+      });
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = false;
+    }
+  </script>
 
   <script>
     const toggle = document.getElementById('theme-toggle');

@@ -32,8 +32,17 @@ plain html elements. no classes.
 - `dialog` -- modal
 - `progress`, `meter` -- bars
 - `[data-alert]` -- info/success/warning/error banners
+- `[data-chip]` -- inline badges (info/success/warning/error)
 - `[data-grid="2|3|4"]` -- content grid
-- `[data-layout="sidebar-left|sidebar-right|two-column|three-column"]` -- page layouts
+- `[data-flex]` -- flex row/column/wrap with alignment
+- `[data-layout]` -- sidebar-left/sidebar-right/two-column/three-column
+- `[role="tablist"]` / `[role="tab"]` / `[role="tabpanel"]` -- aria tab panels
+- `[role="toolbar"]` -- button toolbar with aria-pressed
+- `[role="switch"]` -- toggle switch
+- `[aria-invalid]` / `[aria-busy]` / `[aria-disabled]` -- form & state styling
+- `[aria-sort]` -- table sort indicators
+- `[aria-expanded]` -- expand/collapse indicators
+- `.visually-hidden` -- screen reader only content
 
 colors are `--tux-*` custom properties. override them.
 
