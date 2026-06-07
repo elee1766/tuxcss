@@ -4,7 +4,10 @@
   "description": "a classless css framework for terminal-utilitarian interfaces",
   "main": "tux.css",
   "style": "tux.css",
-  "files": ["tux.css"],
+  "files": ["tux.css", "tux.min.css"],
+  "scripts": {
+    "build": "lightningcss --minify tux.css -o tux.min.css"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/elee1766/tuxcss"
