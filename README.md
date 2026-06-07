@@ -32,7 +32,8 @@ plain html elements. no classes.
 - `dialog` -- modal
 - `progress`, `meter` -- bars
 - `[data-alert]` -- info/success/warning/error banners
-- `[data-grid="2|3|4"]` -- grid layout
+- `[data-grid="2|3|4"]` -- content grid
+- `[data-layout="sidebar-left|sidebar-right|two-column|three-column"]` -- page layouts
 
 colors are `--tux-*` custom properties. override them.
 

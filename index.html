@@ -262,9 +262,131 @@ console.log(greet("world"));</code></pre>
     <!-- ============================================================
          DASHBOARD DEMO
          ============================================================ -->
-    <h2 id="dashboard">dashboard demo</h2>
-    <p>tux.css is designed for information-dense dashboards and admin interfaces.
-       the examples below use only semantic html and <code>data-*</code> attributes -- no classes.</p>
+    <h2 id="dashboard">layouts</h2>
+    <p>use <code>data-layout</code> for page-level layouts and <code>data-grid</code> for content grids. all collapse to single column on mobile.</p>
+
+    <!-- sidebar left -->
+    <h3>sidebar left</h3>
+    <div data-layout="sidebar-left">
+      <aside>
+        <header><span>navigation</span></header>
+        <div>
+          <nav style="flex-direction: column;">
+            <a href="#">overview</a>
+            <a href="#">services</a>
+            <a href="#">deployments</a>
+            <a href="#">logs</a>
+            <a href="#">settings</a>
+          </nav>
+        </div>
+      </aside>
+      <section>
+        <header><span>main content</span></header>
+        <div>
+          <p>the sidebar is fixed at 14rem. the main area fills the rest. use <code>data-layout="sidebar-left"</code> on a container.</p>
+          <div data-grid="3">
+            <section>
+              <header><span>cpu</span></header>
+              <div><strong style="font-size: var(--tux-text-sm)">42%</strong></div>
+            </section>
+            <section>
+              <header><span>memory</span></header>
+              <div><strong style="font-size: var(--tux-text-sm)">3.2 / 8 GiB</strong></div>
+            </section>
+            <section>
+              <header><span>disk</span></header>
+              <div><strong style="font-size: var(--tux-text-sm)">67%</strong></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- sidebar right -->
+    <h3>sidebar right</h3>
+    <div data-layout="sidebar-right">
+      <section>
+        <header><span>feed</span></header>
+        <table>
+          <thead>
+            <tr><th>time</th><th>event</th><th>detail</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-muted)">14:32</td>
+              <td>deploy</td>
+              <td>api-gateway v2.14.3 rolled out</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-muted)">14:28</td>
+              <td>alert</td>
+              <td>payment-worker p99 > 500ms</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-muted)">13:45</td>
+              <td>scale</td>
+              <td>auth-service 2 -> 4 replicas</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <aside>
+        <header><span>status</span></header>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td style="color: var(--tux-text-tertiary)">api</td>
+                <td><span style="color: var(--tux-success)">ok</span></td>
+              </tr>
+              <tr>
+                <td style="color: var(--tux-text-tertiary)">auth</td>
+                <td><span style="color: var(--tux-success)">ok</span></td>
+              </tr>
+              <tr>
+                <td style="color: var(--tux-text-tertiary)">payments</td>
+                <td><span style="color: var(--tux-warning)">slow</span></td>
+              </tr>
+              <tr>
+                <td style="color: var(--tux-text-tertiary)">search</td>
+                <td><span style="color: var(--tux-success)">ok</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </aside>
+    </div>
+
+    <!-- two column -->
+    <h3>two column</h3>
+    <div data-layout="two-column">
+      <section>
+        <header><span>inbound traffic</span></header>
+        <div>
+          <table>
+            <tbody>
+              <tr><td style="color: var(--tux-text-tertiary); width: 6rem">requests</td><td>12,450/s</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">bandwidth</td><td>84 Mbps</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">connections</td><td>2,340</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">error rate</td><td>0.02%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <header><span>outbound traffic</span></header>
+        <div>
+          <table>
+            <tbody>
+              <tr><td style="color: var(--tux-text-tertiary); width: 6rem">requests</td><td>8,200/s</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">bandwidth</td><td>120 Mbps</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">connections</td><td>890</td></tr>
+              <tr><td style="color: var(--tux-text-tertiary)">error rate</td><td>0.05%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
 
     <!-- summary cards -->
     <h3>summary cards</h3>
