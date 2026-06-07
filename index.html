@@ -12,11 +12,11 @@
     <nav>
       <a href="#" aria-current="page">tux.css</a>
       <span style="color: var(--tux-text-faint)">/</span>
-      <a href="#components">components</a>
+      <a href="#elements">elements</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#dashboard">dashboard</a>
       <span style="color: var(--tux-text-faint)">/</span>
       <a href="#forms">forms</a>
-      <span style="color: var(--tux-text-faint)">/</span>
-      <a href="#layout">layout</a>
     </nav>
     <nav>
       <a href="https://github.com/elee1766/tuxcss">github</a>
@@ -40,11 +40,14 @@
       </div>
     </section>
 
-    <!-- typography -->
-    <h2 id="typography">typography</h2>
+    <!-- ============================================================
+         ELEMENTS
+         ============================================================ -->
+    <h2 id="elements">elements</h2>
 
+    <!-- typography -->
     <section>
-      <header><span>headings &amp; text</span></header>
+      <header><span>typography</span></header>
       <div>
         <h1>h1 -- primary heading</h1>
         <h2>h2 -- section heading</h2>
@@ -58,8 +61,8 @@
            without scrolling.</p>
         <p>secondary text uses a slightly muted color. <small>small text is even more subtle,
            used for legends and annotations.</small></p>
-        <p>inline elements: <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>,
-           <mark>mark</mark>, <del>deleted</del>, <ins>inserted</ins>,
+        <p>inline elements: <code>code</code>, <kbd>ctrl+c</kbd>, <samp>samp output</samp>,
+           <mark>highlighted</mark>, <del>removed</del>, <ins>added</ins>,
            <a href="#">link</a>.</p>
       </div>
     </section>
@@ -123,20 +126,17 @@ console.log(greet("world"));</code></pre>
       </div>
     </section>
 
-    <!-- components -->
-    <h2 id="components">components</h2>
-
     <!-- alerts -->
     <section>
       <header><span>alerts</span></header>
       <div>
-        <div data-alert="info" role="alert">info -- data refresh scheduled for next cycle.</div>
+        <div data-alert="info" role="alert">info -- next deployment scheduled for 14:30 utc.</div>
         <br>
-        <div data-alert="success">success -- filesystem added successfully.</div>
+        <div data-alert="success">success -- 3 services deployed to production.</div>
         <br>
-        <div data-alert="warning">warning -- disk usage above 75% threshold.</div>
+        <div data-alert="warning">warning -- api response time above p95 threshold.</div>
         <br>
-        <div data-alert="error">error -- scrub found 3 checksum mismatches.</div>
+        <div data-alert="error">error -- health check failed on 2 instances.</div>
       </div>
     </section>
 
@@ -186,24 +186,25 @@ console.log(greet("world"));</code></pre>
       <header><span>details / accordion</span></header>
       <div>
         <details>
-          <summary>filesystem info</summary>
-          <p>path: /data<br>
-             label: data-drive<br>
-             devices: 2<br>
-             raid profile: raid1</p>
+          <summary>configuration</summary>
+          <p>region: us-east-1<br>
+             environment: production<br>
+             replicas: 3<br>
+             runtime: node 20.x</p>
         </details>
         <details>
-          <summary>scrub status</summary>
-          <p>status: idle<br>
-             last run: 2024-01-15 14:30<br>
-             errors: none</p>
+          <summary>connection info</summary>
+          <p>endpoint: api.example.com:443<br>
+             protocol: https/2<br>
+             tls: 1.3<br>
+             cert expires: 2025-08-12</p>
         </details>
         <details open>
-          <summary>allocation (open by default)</summary>
-          <p>total: 500 GiB<br>
-             allocated: 420 GiB<br>
-             unallocated: 80 GiB<br>
-             used: 380 GiB</p>
+          <summary>resource limits (open by default)</summary>
+          <p>cpu: 2 vcpu<br>
+             memory: 4 GiB<br>
+             storage: 50 GiB<br>
+             connections: 1000</p>
         </details>
       </div>
     </section>
@@ -214,255 +215,19 @@ console.log(greet("world"));</code></pre>
       <div>
         <button onclick="document.getElementById('demo-dialog').showModal()">open dialog</button>
         <dialog id="demo-dialog">
-          <header>confirm scrub</header>
+          <header>confirm action</header>
           <div>
-            <p>this will start a full filesystem scrub on /data. the operation may take several minutes.</p>
+            <p>this will restart all services in the production cluster. active connections will be drained gracefully.</p>
             <label>
-              <input type="checkbox"> readonly mode
+              <input type="checkbox"> skip health checks
             </label>
           </div>
           <footer>
             <button data-variant="ghost" onclick="document.getElementById('demo-dialog').close()">cancel</button>
-            <button onclick="document.getElementById('demo-dialog').close()">start scrub</button>
+            <button onclick="document.getElementById('demo-dialog').close()">confirm</button>
           </footer>
         </dialog>
       </div>
-    </section>
-
-    <!-- tables -->
-    <h2 id="tables">tables</h2>
-
-    <section>
-      <header>
-        <span>filesystems</span>
-        <button data-variant="ghost">+ add</button>
-      </header>
-      <table>
-        <thead>
-          <tr>
-            <th>path</th>
-            <th>label</th>
-            <th data-align="right">usage</th>
-            <th data-align="right">subvols</th>
-            <th data-align="right">errors</th>
-            <th>scrub</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="#">/data</a></td>
-            <td>data-drive</td>
-            <td data-align="right">12.5 GiB / 50 GiB</td>
-            <td data-align="right">12</td>
-            <td data-align="right">0</td>
-            <td><span style="color: var(--tux-success)">ok</span></td>
-            <td data-align="right"><button data-variant="ghost">x</button></td>
-          </tr>
-          <tr>
-            <td><a href="#">/home</a></td>
-            <td>home</td>
-            <td data-align="right">45.2 GiB / 50 GiB</td>
-            <td data-align="right">8</td>
-            <td data-align="right" style="color: var(--tux-error)">2</td>
-            <td><span style="color: var(--tux-primary)">running</span></td>
-            <td data-align="right"><button data-variant="ghost">x</button></td>
-          </tr>
-          <tr>
-            <td><a href="#">/backup</a></td>
-            <td>backup-pool</td>
-            <td data-align="right">890 GiB / 2 TiB</td>
-            <td data-align="right">45</td>
-            <td data-align="right">0</td>
-            <td><span style="color: var(--tux-text-muted)">idle</span></td>
-            <td data-align="right"><button data-variant="ghost">x</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- stat table (key-value) -->
-    <div data-grid="2">
-      <section>
-        <header><span>filesystem info</span></header>
-        <table>
-          <tbody>
-            <tr>
-              <td style="color: var(--tux-text-tertiary); width: 6rem">path</td>
-              <td>/data</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">label</td>
-              <td>data-drive</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">uuid</td>
-              <td>a1b2c3d4-e5f6-7890-abcd-ef1234567890</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">devices</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">profile</td>
-              <td>raid1</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section>
-        <header><span>last scrub</span></header>
-        <table>
-          <tbody>
-            <tr>
-              <td style="color: var(--tux-text-tertiary); width: 6rem">status</td>
-              <td><span style="color: var(--tux-success)">ok</span></td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">started</td>
-              <td>2024-01-15 14:30</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">duration</td>
-              <td>2m 15s</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">scrubbed</td>
-              <td>50 GiB</td>
-            </tr>
-            <tr>
-              <td style="color: var(--tux-text-tertiary)">errors</td>
-              <td>0</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </div>
-
-    <!-- summary cards -->
-    <h2 id="layout">layout</h2>
-
-    <h3>summary cards (grid)</h3>
-    <div data-grid="4">
-      <section>
-        <header><span>subvolumes</span></header>
-        <div>
-          <strong style="font-size: var(--tux-text-sm)">12</strong>
-        </div>
-      </section>
-      <section>
-        <header><span>backups</span></header>
-        <div>
-          <strong style="font-size: var(--tux-text-sm)">45</strong>
-        </div>
-      </section>
-      <section>
-        <header><span>errors</span></header>
-        <div>
-          <strong style="font-size: var(--tux-text-sm); color: var(--tux-success)">0</strong>
-        </div>
-      </section>
-      <section>
-        <header><span>scrub</span></header>
-        <div>
-          <strong style="font-size: var(--tux-text-sm); color: var(--tux-success)">ok</strong>
-        </div>
-      </section>
-    </div>
-
-    <!-- forms -->
-    <h2 id="forms">forms</h2>
-
-    <section>
-      <header><span>add filesystem</span></header>
-      <div>
-        <div data-grid="2">
-          <div>
-            <label for="path">path</label>
-            <input type="text" id="path" placeholder="/mnt/data" value="/data">
-          </div>
-          <div>
-            <label for="label">label</label>
-            <input type="text" id="label" placeholder="optional label" value="data-drive">
-          </div>
-        </div>
-        <br>
-        <div data-grid="2">
-          <div>
-            <label for="email">email</label>
-            <input type="email" id="email" placeholder="admin@example.com">
-          </div>
-          <div>
-            <label for="interval">refresh interval (sec)</label>
-            <input type="number" id="interval" value="30" min="5" max="300">
-          </div>
-        </div>
-        <br>
-        <label for="notes">notes</label>
-        <textarea id="notes" placeholder="optional notes about this filesystem..."></textarea>
-        <br><br>
-        <label for="profile">raid profile</label>
-        <select id="profile">
-          <option>single</option>
-          <option selected>raid1</option>
-          <option>raid5</option>
-          <option>raid6</option>
-          <option>raid10</option>
-        </select>
-        <br><br>
-        <fieldset>
-          <legend>options</legend>
-          <label><input type="checkbox" checked> enable auto-refresh</label>
-          <label><input type="checkbox"> readonly mode</label>
-          <label><input type="radio" name="units" checked> binary (GiB)</label>
-          <label><input type="radio" name="units"> decimal (GB)</label>
-        </fieldset>
-        <br>
-        <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
-          <button data-variant="ghost">cancel</button>
-          <button>add</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- settings pattern -->
-    <section>
-      <header>
-        <span>ui settings</span>
-        <small>display preferences saved to your browser</small>
-      </header>
-      <table>
-        <tbody>
-          <tr>
-            <td style="color: var(--tux-text-tertiary)">number format</td>
-            <td data-align="right">
-              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">human</span>
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">raw</span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td style="color: var(--tux-text-tertiary)">byte units</td>
-            <td data-align="right">
-              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">binary</span>
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">decimal</span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td style="color: var(--tux-text-tertiary)">auto refresh</td>
-            <td data-align="right">
-              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">off</span>
-                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">on</span>
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </section>
 
     <!-- figure -->
@@ -476,7 +241,353 @@ console.log(greet("world"));</code></pre>
       </div>
     </section>
 
-    <!-- color palette -->
+    <!-- ============================================================
+         DASHBOARD DEMO
+         ============================================================ -->
+    <h2 id="dashboard">dashboard demo</h2>
+    <p>tux.css is designed for information-dense dashboards and admin interfaces.
+       the examples below use only semantic html and <code>data-*</code> attributes -- no classes.</p>
+
+    <!-- summary cards -->
+    <h3>summary cards</h3>
+    <div data-grid="4">
+      <section>
+        <header><span>services</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm)">18</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>uptime</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm); color: var(--tux-success)">99.97%</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>incidents</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm); color: var(--tux-warning)">2</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>deploys today</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm)">7</strong>
+        </div>
+      </section>
+    </div>
+
+    <!-- data table -->
+    <h3>data table</h3>
+    <section>
+      <header>
+        <span>services</span>
+        <button data-variant="ghost">+ add</button>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>status</th>
+            <th data-align="right">requests/s</th>
+            <th data-align="right">p99 latency</th>
+            <th data-align="right">error rate</th>
+            <th>last deploy</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">api-gateway</a></td>
+            <td><span style="color: var(--tux-success)">healthy</span></td>
+            <td data-align="right">12,450</td>
+            <td data-align="right">42ms</td>
+            <td data-align="right">0.02%</td>
+            <td>2h ago</td>
+            <td data-align="right"><button data-variant="ghost">...</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">auth-service</a></td>
+            <td><span style="color: var(--tux-success)">healthy</span></td>
+            <td data-align="right">3,200</td>
+            <td data-align="right">28ms</td>
+            <td data-align="right">0.01%</td>
+            <td>1d ago</td>
+            <td data-align="right"><button data-variant="ghost">...</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">payment-worker</a></td>
+            <td><span style="color: var(--tux-warning)">degraded</span></td>
+            <td data-align="right">890</td>
+            <td data-align="right" style="color: var(--tux-warning)">520ms</td>
+            <td data-align="right" style="color: var(--tux-error)">2.4%</td>
+            <td>3h ago</td>
+            <td data-align="right"><button data-variant="ghost">...</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">search-index</a></td>
+            <td><span style="color: var(--tux-success)">healthy</span></td>
+            <td data-align="right">5,670</td>
+            <td data-align="right">65ms</td>
+            <td data-align="right">0.05%</td>
+            <td>6h ago</td>
+            <td data-align="right"><button data-variant="ghost">...</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">email-sender</a></td>
+            <td><span style="color: var(--tux-text-muted)">idle</span></td>
+            <td data-align="right">0</td>
+            <td data-align="right">--</td>
+            <td data-align="right">--</td>
+            <td>5d ago</td>
+            <td data-align="right"><button data-variant="ghost">...</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- key-value info panels -->
+    <h3>detail panels</h3>
+    <div data-grid="2">
+      <section>
+        <header><span>service info</span></header>
+        <table>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-tertiary); width: 6rem">name</td>
+              <td>api-gateway</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">version</td>
+              <td>v2.14.3</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">runtime</td>
+              <td>go 1.22</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">replicas</td>
+              <td>3 / 3</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">region</td>
+              <td>us-east-1</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <header><span>last deployment</span></header>
+        <table>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-tertiary); width: 6rem">status</td>
+              <td><span style="color: var(--tux-success)">complete</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">deployed</td>
+              <td>2025-06-06 12:15 utc</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">duration</td>
+              <td>1m 42s</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">commit</td>
+              <td>a3f7c21</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">author</td>
+              <td>alice</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- operation status (maintenance-style) -->
+    <h3>operation status</h3>
+    <section>
+      <header>
+        <span>database migration</span>
+        <span style="color: var(--tux-primary)">running</span>
+      </header>
+      <div>
+        <progress value="65" max="100"></progress>
+        <br>
+        <table>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-tertiary); width: 6rem">task</td>
+              <td>migrate users table (step 3 of 5)</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">started</td>
+              <td>2025-06-06 14:30 utc (4m ago)</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">rows</td>
+              <td>1,245,000 / 1,920,000</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">errors</td>
+              <td><span style="color: var(--tux-success)">0</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- event log -->
+    <h3>event log</h3>
+    <section>
+      <header>
+        <span>recent events</span>
+        <button data-variant="ghost">refresh</button>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>time</th>
+            <th>type</th>
+            <th>service</th>
+            <th>message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: var(--tux-text-muted)">14:32:01</td>
+            <td><span style="color: var(--tux-primary)">deploy</span></td>
+            <td>api-gateway</td>
+            <td>rolled out v2.14.3 to 3/3 replicas</td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-muted)">14:30:15</td>
+            <td><span style="color: var(--tux-warning)">alert</span></td>
+            <td>payment-worker</td>
+            <td>p99 latency exceeded 500ms threshold</td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-muted)">14:28:44</td>
+            <td><span style="color: var(--tux-success)">resolve</span></td>
+            <td>search-index</td>
+            <td>connection pool recovered, error rate normalized</td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-muted)">14:15:00</td>
+            <td><span style="color: var(--tux-error)">error</span></td>
+            <td>payment-worker</td>
+            <td>upstream timeout from stripe api (3 retries exhausted)</td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-muted)">13:45:22</td>
+            <td><span style="color: var(--tux-primary)">scale</span></td>
+            <td>auth-service</td>
+            <td>autoscaled from 2 to 4 replicas (cpu > 80%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- settings -->
+    <h3>settings panel</h3>
+    <section>
+      <header>
+        <span>preferences</span>
+        <small>saved to your browser</small>
+      </header>
+      <table>
+        <tbody>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">display format</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">compact</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">detailed</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">auto refresh</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">off</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">on</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">timezone</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">utc</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">local</span>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============================================================
+         FORMS
+         ============================================================ -->
+    <h2 id="forms">forms</h2>
+
+    <section>
+      <header><span>new service</span></header>
+      <div>
+        <div data-grid="2">
+          <div>
+            <label for="svc-name">service name</label>
+            <input type="text" id="svc-name" placeholder="my-service" value="api-gateway">
+          </div>
+          <div>
+            <label for="svc-repo">repository</label>
+            <input type="url" id="svc-repo" placeholder="https://github.com/org/repo">
+          </div>
+        </div>
+        <br>
+        <div data-grid="2">
+          <div>
+            <label for="svc-email">owner email</label>
+            <input type="email" id="svc-email" placeholder="team@example.com">
+          </div>
+          <div>
+            <label for="svc-port">port</label>
+            <input type="number" id="svc-port" value="8080" min="1" max="65535">
+          </div>
+        </div>
+        <br>
+        <label for="svc-env">environment</label>
+        <select id="svc-env">
+          <option>development</option>
+          <option>staging</option>
+          <option selected>production</option>
+        </select>
+        <br><br>
+        <label for="svc-notes">description</label>
+        <textarea id="svc-notes" placeholder="what does this service do..."></textarea>
+        <br><br>
+        <fieldset>
+          <legend>options</legend>
+          <label><input type="checkbox" checked> enable health checks</label>
+          <label><input type="checkbox"> auto-scale</label>
+          <label><input type="radio" name="deploy" checked> rolling deploy</label>
+          <label><input type="radio" name="deploy"> blue-green deploy</label>
+        </fieldset>
+        <br>
+        <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+          <button data-variant="ghost">cancel</button>
+          <button>create</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COLOR PALETTE
+         ============================================================ -->
     <h2 id="colors">color palette</h2>
 
     <section>

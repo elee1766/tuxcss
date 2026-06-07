@@ -557,33 +557,38 @@ details > :not(summary) {
    12. alerts (via data-attribute on any block)
    ============================================================ */
 [role="alert"],
-.alert {
+.alert,
+[data-alert] {
   font-size: var(--tux-text-xs);
   padding: 0.25rem 0.5rem;
   margin-bottom: 0.5rem;
   background: var(--tux-primary-subtle);
   color: var(--tux-primary);
+  border: 1px solid transparent;
 }
 
 [data-alert="error"] {
   background: var(--tux-error-subtle);
   color: var(--tux-error);
+  border-color: var(--tux-error-soft);
 }
 
 [data-alert="success"] {
   background: var(--tux-success-subtle);
   color: var(--tux-success);
-  border: 1px solid var(--tux-success-muted);
+  border-color: var(--tux-success-muted);
 }
 
 [data-alert="warning"] {
   background: var(--tux-warning-subtle);
   color: var(--tux-warning);
+  border-color: var(--tux-warning-soft);
 }
 
 [data-alert="info"] {
   background: var(--tux-primary-subtle);
   color: var(--tux-primary);
+  border-color: var(--tux-primary-soft);
 }
 
 /* ============================================================
