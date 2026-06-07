@@ -163,10 +163,11 @@ body > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1px 0.75rem 0;
+  padding: 0 0.75rem;
   background: var(--tux-bg-surface);
   border-bottom: 1px solid var(--tux-border);
   font-size: var(--tux-text-xs);
+  line-height: 2rem;
   position: sticky;
   top: 0;
   z-index: 40;
@@ -220,11 +221,7 @@ nav a:hover {
 
 nav a[aria-current="page"],
 nav a.active {
-  background: var(--tux-bg-surface);
   color: var(--tux-text);
-  border: 1px solid var(--tux-border);
-  border-bottom-color: var(--tux-bg-surface);
-  margin-bottom: -1px;
 }
 
 /* ============================================================
