@@ -157,7 +157,7 @@ body > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.75rem;
+  padding: 1px 0.75rem 0;
   background: var(--tux-bg-surface);
   border-bottom: 1px solid var(--tux-border);
   font-size: var(--tux-text-xs);
