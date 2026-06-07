@@ -12,121 +12,121 @@
   --tux-radius-sm: 2px;
 }
 
-/* light (default) -- warm gruvbox-inspired */
+/* light (default) -- jellybeans-inspired, neutral gray base */
 :root, [data-theme="light"] {
-  --tux-bg-base: #edebe8;
-  --tux-bg-surface: #f5f4f1;
-  --tux-bg-raised: #e5e3e0;
-  --tux-bg-muted: #d3d1cd;
-  --tux-bg-overlay: #282828;
-  --tux-text: #3c3836;
-  --tux-text-secondary: #504945;
-  --tux-text-tertiary: #665c54;
-  --tux-text-muted: #928374;
-  --tux-text-faint: #bdae93;
-  --tux-text-inverse: #fbf1c7;
-  --tux-border: #d5c4a1;
-  --tux-border-subtle: #ebdbb2;
-  --tux-border-strong: #a89984;
-  --tux-primary: #458588;
-  --tux-primary-hover: #076678;
-  --tux-primary-strong: #076678;
-  --tux-primary-soft: #83a598;
-  --tux-primary-subtle: #e5ece6;
-  --tux-success: #79740e;
-  --tux-success-soft: #98971a;
-  --tux-success-subtle: #eef0d5;
-  --tux-success-muted: #b8bb26;
-  --tux-warning: #b57614;
-  --tux-warning-soft: #d79921;
-  --tux-warning-subtle: #f5edcf;
-  --tux-warning-muted: #af3a03;
-  --tux-error: #cc241d;
-  --tux-error-soft: #fb4934;
-  --tux-error-hover: #9d0006;
-  --tux-error-subtle: #fce1de;
-  --tux-interactive: #504945;
-  --tux-interactive-hover: #3c3836;
-  --tux-interactive-soft: #665c54;
+  --tux-bg-base: #ebebeb;
+  --tux-bg-surface: #f5f5f5;
+  --tux-bg-raised: #e0e0e0;
+  --tux-bg-muted: #d0d0d0;
+  --tux-bg-overlay: #151515;
+  --tux-text: #303030;
+  --tux-text-secondary: #404040;
+  --tux-text-tertiary: #606060;
+  --tux-text-muted: #888888;
+  --tux-text-faint: #b0b0b0;
+  --tux-text-inverse: #f5f5f5;
+  --tux-border: #cfcfcf;
+  --tux-border-subtle: #e0e0e0;
+  --tux-border-strong: #a0a0a0;
+  --tux-primary: #597b96;
+  --tux-primary-hover: #425e75;
+  --tux-primary-strong: #3a5269;
+  --tux-primary-soft: #8197bf;
+  --tux-primary-subtle: #e3e9f0;
+  --tux-success: #799d6a;
+  --tux-success-soft: #99ad6a;
+  --tux-success-subtle: #e6ede2;
+  --tux-success-muted: #99ad6a;
+  --tux-warning: #cf6a4c;
+  --tux-warning-soft: #ffb964;
+  --tux-warning-subtle: #f5ebe0;
+  --tux-warning-muted: #af4c2a;
+  --tux-error: #902020;
+  --tux-error-soft: #cc4444;
+  --tux-error-hover: #701818;
+  --tux-error-subtle: #f0e0e0;
+  --tux-interactive: #505050;
+  --tux-interactive-hover: #353535;
+  --tux-interactive-soft: #707070;
   color-scheme: light;
 }
 
-/* dark -- auto via prefers-color-scheme or manual via data-theme */
+/* dark -- jellybeans native palette */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --tux-bg-base: #1d2021;
-    --tux-bg-surface: #282828;
-    --tux-bg-raised: #3c3836;
-    --tux-bg-muted: #504945;
-    --tux-bg-overlay: #1d2021;
-    --tux-text: #ebdbb2;
-    --tux-text-secondary: #d5c4a1;
-    --tux-text-tertiary: #a89984;
-    --tux-text-muted: #928374;
-    --tux-text-faint: #665c54;
-    --tux-text-inverse: #1d2021;
-    --tux-border: #504945;
-    --tux-border-subtle: #3c3836;
-    --tux-border-strong: #665c54;
-    --tux-primary: #83a598;
-    --tux-primary-hover: #8ec07c;
-    --tux-primary-strong: #458588;
-    --tux-primary-soft: #83a598;
-    --tux-primary-subtle: #323b35;
-    --tux-success: #b8bb26;
-    --tux-success-soft: #98971a;
-    --tux-success-subtle: #2e2e1f;
-    --tux-success-muted: #79740e;
-    --tux-warning: #fabd2f;
-    --tux-warning-soft: #d79921;
-    --tux-warning-subtle: #352e1e;
-    --tux-warning-muted: #fe8019;
-    --tux-error: #fb4934;
-    --tux-error-soft: #cc241d;
-    --tux-error-hover: #fb4934;
-    --tux-error-subtle: #3c2120;
-    --tux-interactive: #a89984;
-    --tux-interactive-hover: #d5c4a1;
-    --tux-interactive-soft: #928374;
+    --tux-bg-base: #121212;
+    --tux-bg-surface: #151515;
+    --tux-bg-raised: #1c1c1c;
+    --tux-bg-muted: #333333;
+    --tux-bg-overlay: #000000;
+    --tux-text: #e8e8d3;
+    --tux-text-secondary: #c8c8b0;
+    --tux-text-tertiary: #888888;
+    --tux-text-muted: #605958;
+    --tux-text-faint: #404040;
+    --tux-text-inverse: #151515;
+    --tux-border: #333333;
+    --tux-border-subtle: #252525;
+    --tux-border-strong: #555555;
+    --tux-primary: #8197bf;
+    --tux-primary-hover: #8fbfdc;
+    --tux-primary-strong: #668799;
+    --tux-primary-soft: #8197bf;
+    --tux-primary-subtle: #1a2030;
+    --tux-success: #99ad6a;
+    --tux-success-soft: #799d6a;
+    --tux-success-subtle: #1a2218;
+    --tux-success-muted: #556633;
+    --tux-warning: #fad07a;
+    --tux-warning-soft: #ffb964;
+    --tux-warning-subtle: #2a2218;
+    --tux-warning-muted: #cf6a4c;
+    --tux-error: #cf6a4c;
+    --tux-error-soft: #902020;
+    --tux-error-hover: #ff6a4c;
+    --tux-error-subtle: #2a1515;
+    --tux-interactive: #888888;
+    --tux-interactive-hover: #c8c8b0;
+    --tux-interactive-soft: #605958;
     color-scheme: dark;
   }
 }
 
 [data-theme="dark"] {
-  --tux-bg-base: #1d2021;
-  --tux-bg-surface: #282828;
-  --tux-bg-raised: #3c3836;
-  --tux-bg-muted: #504945;
-  --tux-bg-overlay: #1d2021;
-  --tux-text: #ebdbb2;
-  --tux-text-secondary: #d5c4a1;
-  --tux-text-tertiary: #a89984;
-  --tux-text-muted: #928374;
-  --tux-text-faint: #665c54;
-  --tux-text-inverse: #1d2021;
-  --tux-border: #504945;
-  --tux-border-subtle: #3c3836;
-  --tux-border-strong: #665c54;
-  --tux-primary: #83a598;
-  --tux-primary-hover: #8ec07c;
-  --tux-primary-strong: #458588;
-  --tux-primary-soft: #83a598;
-  --tux-primary-subtle: #323b35;
-  --tux-success: #b8bb26;
-  --tux-success-soft: #98971a;
-  --tux-success-subtle: #2e2e1f;
-  --tux-success-muted: #79740e;
-  --tux-warning: #fabd2f;
-  --tux-warning-soft: #d79921;
-  --tux-warning-subtle: #352e1e;
-  --tux-warning-muted: #fe8019;
-  --tux-error: #fb4934;
-  --tux-error-soft: #cc241d;
-  --tux-error-hover: #fb4934;
-  --tux-error-subtle: #3c2120;
-  --tux-interactive: #a89984;
-  --tux-interactive-hover: #d5c4a1;
-  --tux-interactive-soft: #928374;
+  --tux-bg-base: #121212;
+  --tux-bg-surface: #151515;
+  --tux-bg-raised: #1c1c1c;
+  --tux-bg-muted: #333333;
+  --tux-bg-overlay: #000000;
+  --tux-text: #e8e8d3;
+  --tux-text-secondary: #c8c8b0;
+  --tux-text-tertiary: #888888;
+  --tux-text-muted: #605958;
+  --tux-text-faint: #404040;
+  --tux-text-inverse: #151515;
+  --tux-border: #333333;
+  --tux-border-subtle: #252525;
+  --tux-border-strong: #555555;
+  --tux-primary: #8197bf;
+  --tux-primary-hover: #8fbfdc;
+  --tux-primary-strong: #668799;
+  --tux-primary-soft: #8197bf;
+  --tux-primary-subtle: #1a2030;
+  --tux-success: #99ad6a;
+  --tux-success-soft: #799d6a;
+  --tux-success-subtle: #1a2218;
+  --tux-success-muted: #556633;
+  --tux-warning: #fad07a;
+  --tux-warning-soft: #ffb964;
+  --tux-warning-subtle: #2a2218;
+  --tux-warning-muted: #cf6a4c;
+  --tux-error: #cf6a4c;
+  --tux-error-soft: #902020;
+  --tux-error-hover: #ff6a4c;
+  --tux-error-subtle: #2a1515;
+  --tux-interactive: #888888;
+  --tux-interactive-hover: #c8c8b0;
+  --tux-interactive-soft: #605958;
   color-scheme: dark;
 }
 
@@ -418,7 +418,23 @@ dialog > :not(header):not(footer) { padding: 1rem; }
 [data-grid="2"] { grid-template-columns: repeat(2, 1fr); }
 [data-grid="3"] { grid-template-columns: repeat(3, 1fr); }
 [data-grid="4"] { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 640px) { :is([data-grid="3"], [data-grid="4"]) { grid-template-columns: repeat(2, 1fr); } }
+
+/* -- responsive -- */
+@media (max-width: 640px) {
+  body { font-size: var(--tux-text-xs); }
+  main { padding: 0.5rem; }
+  body > header { padding: 0 0.5rem; }
+  nav { gap: 0.25rem; }
+  nav a { padding: 0.25rem 0.375rem; }
+  :is([data-grid="2"], [data-grid="3"], [data-grid="4"]) { grid-template-columns: 1fr; }
+  :is(section, article, aside) > :not(header):not(table):not(details) { padding: 0.375rem; }
+  table { display: block; overflow-x: auto; }
+  dialog { width: calc(100% - 1rem); }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  :is([data-grid="3"], [data-grid="4"]) { grid-template-columns: repeat(2, 1fr); }
+}
 
 /* -- a11y -- */
 :focus-visible { outline: 2px solid var(--tux-primary); outline-offset: 1px; }
