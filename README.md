@@ -1,6 +1,6 @@
 # tux.css
 
-classless css. monospaced, lowercase, flat, dense. for dashboards and admin tools.
+classless css for monospace fonts, with a flat and dense aesthetic.
 
 **[preview](https://elee1766.github.io/tuxcss)**
 
