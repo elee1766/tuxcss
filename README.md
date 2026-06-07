@@ -36,6 +36,18 @@ plain html elements. no classes.
 
 colors are `--tux-*` custom properties. override them.
 
+## font
+
+tux.css uses Cousine as the primary font, with fallbacks to other monospace fonts. no font files are bundled. if you want Cousine, add this before tux.css:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+```
+
+without it, the browser picks the next available monospace font from the stack: JetBrains Mono, IBM Plex Mono, Fira Code, Source Code Pro, or the system default.
+
 ## dark mode
 
 auto-adapts to `prefers-color-scheme`. to override manually:
