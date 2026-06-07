@@ -266,7 +266,7 @@ textarea,
 select {
   font-family: var(--tux-font);
   font-size: var(--tux-text-xs);
-  padding: 0.375rem 0.5rem;
+  padding: 0.5rem;
   border: 1px solid var(--tux-border-strong);
   border-radius: 0;
   background: var(--tux-bg-surface);
@@ -274,7 +274,7 @@ select {
   width: 100%;
   outline: none;
   appearance: none;
-  line-height: 1.5;
+  line-height: normal;
 }
 
 :is(input, textarea, select):focus {
@@ -306,13 +306,13 @@ legend { font-size: var(--tux-text-xs); color: var(--tux-text-tertiary); padding
 :is(button, input:is([type="submit"], [type="reset"], [type="button"])) {
   font-family: var(--tux-font);
   font-size: var(--tux-text-xs);
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.5rem;
   cursor: pointer;
   border: none;
   background: var(--tux-primary);
   color: var(--tux-text-inverse);
   text-transform: lowercase;
-  line-height: 1.5;
+  line-height: normal;
 }
 
 :is(button, input[type="submit"], input[type="button"]):hover {
