@@ -158,12 +158,12 @@ body {
   text-transform: lowercase;
 }
 
-h1 { font-size: 1.25rem; margin-bottom: 0.75rem; }
-h2 { font-size: 1rem; margin-bottom: 0.5rem; }
-h3 { font-size: var(--tux-text-sm); margin-bottom: 0.5rem; }
-h4 { font-size: var(--tux-text-xs); margin-bottom: 0.25rem; }
-h5 { font-size: var(--tux-text-xs); color: var(--tux-text-secondary); margin-bottom: 0.25rem; }
-h6 { font-size: var(--tux-text-micro); color: var(--tux-text-tertiary); margin-bottom: 0.25rem; }
+h1 { font-size: 1.5rem; margin-bottom: 0.75rem; }    /* 24px */
+h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }   /* 20px */
+h3 { font-size: 1rem; margin-bottom: 0.5rem; }       /* 16px */
+h4 { font-size: var(--tux-text-sm); margin-bottom: 0.25rem; } /* 14px */
+h5 { font-size: var(--tux-text-xs); color: var(--tux-text-secondary); margin-bottom: 0.25rem; } /* 12px */
+h6 { font-size: var(--tux-text-xs); color: var(--tux-text-tertiary); margin-bottom: 0.25rem; }  /* 12px */
 
 p { margin-bottom: 0.5rem; color: var(--tux-text-secondary); }
 small { font-size: var(--tux-text-micro); color: var(--tux-text-muted); }
