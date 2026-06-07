@@ -1,91 +1,55 @@
-/*! tux.css v0.1.0 | MIT License | github.com/elee1766/tuxcss
- *
- * a classless css framework for terminal-utilitarian interfaces.
- * monospaced, lowercase, borderline-brutalist.
- * drop it on semantic html and go.
- */
+/*! tux.css v0.1.0 | MIT License | github.com/elee1766/tuxcss */
 
-/* ============================================================
-   0. custom properties (design tokens)
-   ============================================================ */
+/* -- tokens -- */
 :root {
-  /* fonts */
   --tux-font: "Cousine", "JetBrains Mono", "IBM Plex Mono",
     "Fira Code", "Source Code Pro", ui-monospace, monospace;
-
-  /* backgrounds */
   --tux-bg-base: #f3f4f6;
-  --tux-bg-surface: #ffffff;
+  --tux-bg-surface: #fff;
   --tux-bg-raised: #f9fafb;
   --tux-bg-muted: #e5e7eb;
   --tux-bg-overlay: #111827;
-
-  /* text */
   --tux-text: #374151;
   --tux-text-secondary: #4b5563;
   --tux-text-tertiary: #6b7280;
   --tux-text-muted: #9ca3af;
   --tux-text-faint: #d1d5db;
-  --tux-text-inverse: #ffffff;
-
-  /* borders */
+  --tux-text-inverse: #fff;
   --tux-border: #e5e7eb;
   --tux-border-subtle: #f3f4f6;
   --tux-border-strong: #d1d5db;
-
-  /* primary (blue) */
   --tux-primary: #2563eb;
   --tux-primary-hover: #1d4ed8;
   --tux-primary-strong: #1e40af;
   --tux-primary-soft: #3b82f6;
   --tux-primary-subtle: #dbeafe;
-
-  /* success (green) */
   --tux-success: #16a34a;
   --tux-success-soft: #22c55e;
   --tux-success-subtle: #f0fdf4;
   --tux-success-muted: #bbf7d0;
-
-  /* warning (yellow) */
   --tux-warning: #ca8a04;
   --tux-warning-soft: #eab308;
   --tux-warning-subtle: #fef9c3;
   --tux-warning-muted: #854d0e;
-
-  /* error (red) */
   --tux-error: #dc2626;
   --tux-error-soft: #ef4444;
   --tux-error-hover: #b91c1c;
   --tux-error-subtle: #fef2f2;
-
-  /* interactive (gray) */
   --tux-interactive: #4b5563;
   --tux-interactive-hover: #374151;
   --tux-interactive-soft: #6b7280;
-
-  /* sizing */
-  --tux-text-xs: 0.75rem;   /* 12px -- base */
-  --tux-text-sm: 0.875rem;  /* 14px -- emphasis */
+  --tux-text-xs: 0.75rem;
+  --tux-text-sm: 0.875rem;
   --tux-text-micro: 10px;
   --tux-max-width: 80rem;
   --tux-radius-sm: 2px;
 }
 
-/* ============================================================
-   1. reset & base
-   ============================================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* -- reset -- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -moz-tab-size: 4;
   tab-size: 4;
   scroll-behavior: smooth;
 }
@@ -96,16 +60,12 @@ body {
   line-height: 1.5;
   color: var(--tux-text);
   background: var(--tux-bg-base);
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
 }
 
-/* ============================================================
-   2. typography
-   ============================================================ */
-h1, h2, h3, h4, h5, h6 {
+/* -- typography -- */
+:is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--tux-font);
   font-weight: 600;
   color: var(--tux-text);
@@ -113,51 +73,22 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: lowercase;
 }
 
-h1 { font-size: 1.25rem; margin-bottom: 0.75rem; }   /* 20px */
-h2 { font-size: 1rem; margin-bottom: 0.5rem; }       /* 16px */
-h3 { font-size: var(--tux-text-sm); margin-bottom: 0.5rem; } /* 14px */
-h4 { font-size: var(--tux-text-xs); margin-bottom: 0.25rem; } /* 12px */
-h5 {
-  font-size: var(--tux-text-xs);
-  color: var(--tux-text-secondary);
-  margin-bottom: 0.25rem;
-}
-h6 {
-  font-size: var(--tux-text-micro);
-  color: var(--tux-text-tertiary);
-  margin-bottom: 0.25rem;
-}
+h1 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+h2 { font-size: 1rem; margin-bottom: 0.5rem; }
+h3 { font-size: var(--tux-text-sm); margin-bottom: 0.5rem; }
+h4 { font-size: var(--tux-text-xs); margin-bottom: 0.25rem; }
+h5 { font-size: var(--tux-text-xs); color: var(--tux-text-secondary); margin-bottom: 0.25rem; }
+h6 { font-size: var(--tux-text-micro); color: var(--tux-text-tertiary); margin-bottom: 0.25rem; }
 
-p {
-  margin-bottom: 0.5rem;
-  color: var(--tux-text-secondary);
-}
-
-small {
-  font-size: var(--tux-text-micro);
-  color: var(--tux-text-muted);
-}
-
+p { margin-bottom: 0.5rem; color: var(--tux-text-secondary); }
+small { font-size: var(--tux-text-micro); color: var(--tux-text-muted); }
 strong, b { font-weight: 700; }
-em, i { font-style: italic; }
 
-/* ============================================================
-   3. links
-   ============================================================ */
-a {
-  color: var(--tux-primary);
-  text-decoration: none;
-  cursor: pointer;
-}
+/* -- links -- */
+a { color: var(--tux-primary); text-decoration: none; cursor: pointer; }
+a:hover { color: var(--tux-primary-strong); text-decoration: underline; }
 
-a:hover {
-  color: var(--tux-primary-strong);
-  text-decoration: underline;
-}
-
-/* ============================================================
-   4. layout: header, main, footer, nav
-   ============================================================ */
+/* -- layout -- */
 body > header {
   height: 2rem;
   display: flex;
@@ -171,19 +102,11 @@ body > header {
   position: sticky;
   top: 0;
   z-index: 40;
-  -webkit-user-drag: none;
   user-select: none;
 }
 
-body > header a {
-  color: var(--tux-text-muted);
-  text-decoration: none;
-}
-
-body > header a:hover {
-  color: var(--tux-text-secondary);
-  text-decoration: none;
-}
+body > header a { color: var(--tux-text-muted); text-decoration: none; }
+body > header a:hover { color: var(--tux-text-secondary); text-decoration: none; }
 
 main {
   max-width: var(--tux-max-width);
@@ -207,37 +130,18 @@ nav {
   font-size: var(--tux-text-xs);
 }
 
-nav a {
-  color: var(--tux-text-muted);
-  text-decoration: none;
-  padding: 0.25rem 0.75rem;
-}
+nav a { color: var(--tux-text-muted); text-decoration: none; padding: 0.25rem 0.75rem; }
+nav a:hover { background: var(--tux-bg-raised); color: var(--tux-text-secondary); text-decoration: none; }
+nav a:is([aria-current="page"], .active) { color: var(--tux-text); }
 
-nav a:hover {
-  background: var(--tux-bg-raised);
-  color: var(--tux-text-secondary);
-  text-decoration: none;
-}
-
-nav a[aria-current="page"],
-nav a.active {
-  color: var(--tux-text);
-}
-
-/* ============================================================
-   5. sections & articles (card pattern)
-   ============================================================ */
-section,
-article,
-aside {
+/* -- cards (section, article, aside) -- */
+:is(section, article, aside) {
   background: var(--tux-bg-surface);
   border: 1px solid var(--tux-border);
   margin-bottom: 0.5rem;
 }
 
-section > header,
-article > header,
-aside > header {
+:is(section, article, aside) > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -248,81 +152,28 @@ aside > header {
   font-size: var(--tux-text-xs);
 }
 
-section > header + *,
-article > header + *,
-aside > header + * {
-  /* content after a card header gets padding */
-}
-
-/* direct children of cards (not header) get padding */
-section > :not(header):not(table):not(details),
-article > :not(header):not(table):not(details),
-aside > :not(header):not(table):not(details) {
+:is(section, article, aside) > :not(header):not(table):not(details) {
   padding: 0.5rem;
 }
 
-/* ============================================================
-   6. tables
-   ============================================================ */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--tux-text-xs);
-}
-
-thead tr {
-  background: var(--tux-bg-muted);
-}
-
-th {
-  text-align: left;
-  padding: 0.25rem 0.5rem;
-  color: var(--tux-text-tertiary);
-  font-weight: 400;
-  white-space: nowrap;
-}
-
-td {
-  padding: 0.25rem 0.5rem;
-  border-bottom: 1px solid var(--tux-border-subtle);
-}
-
-tbody tr:hover {
-  background: var(--tux-bg-raised);
-}
-
-/* right-align numeric columns via attribute */
-th[data-align="right"],
-td[data-align="right"] {
-  text-align: right;
-}
-
-/* table inside a card -- flush, no extra border */
-section > table,
-article > table,
-aside > table {
+:is(section, article, aside) > table {
   border: none;
 }
 
-/* ============================================================
-   7. forms & inputs
-   ============================================================ */
-label {
-  display: block;
-  font-size: var(--tux-text-xs);
-  color: var(--tux-text-tertiary);
-  margin-bottom: 0.125rem;
-}
+/* -- tables -- */
+table { width: 100%; border-collapse: collapse; font-size: var(--tux-text-xs); }
+thead tr { background: var(--tux-bg-muted); }
+th { text-align: left; padding: 0.25rem 0.5rem; color: var(--tux-text-tertiary); font-weight: 400; white-space: nowrap; }
+td { padding: 0.25rem 0.5rem; border-bottom: 1px solid var(--tux-border-subtle); }
+tbody tr:hover { background: var(--tux-bg-raised); }
+:is(th, td)[data-align="right"] { text-align: right; }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="date"],
-input[type="datetime-local"],
+/* -- forms -- */
+label { display: block; font-size: var(--tux-text-xs); color: var(--tux-text-tertiary); margin-bottom: 0.125rem; }
+
+input:is([type="text"], [type="email"], [type="password"], [type="number"],
+  [type="url"], [type="search"], [type="tel"], [type="date"],
+  [type="datetime-local"]),
 textarea,
 select {
   font-family: var(--tux-font);
@@ -337,25 +188,19 @@ select {
   appearance: none;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+:is(input, textarea, select):focus {
   border-color: var(--tux-primary);
   outline: 1px solid var(--tux-primary);
   outline-offset: -1px;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input:is([type="checkbox"], [type="radio"]) {
   accent-color: var(--tux-primary);
   margin-right: 0.25rem;
   vertical-align: middle;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 4rem;
-}
+textarea { resize: vertical; min-height: 4rem; }
 
 select {
   cursor: pointer;
@@ -365,25 +210,11 @@ select {
   padding-right: 1.5rem;
 }
 
-fieldset {
-  border: 1px solid var(--tux-border);
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-}
+fieldset { border: 1px solid var(--tux-border); padding: 0.5rem; margin-bottom: 0.5rem; }
+legend { font-size: var(--tux-text-xs); color: var(--tux-text-tertiary); padding: 0 0.25rem; }
 
-legend {
-  font-size: var(--tux-text-xs);
-  color: var(--tux-text-tertiary);
-  padding: 0 0.25rem;
-}
-
-/* ============================================================
-   8. buttons
-   ============================================================ */
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+/* -- buttons -- */
+:is(button, input:is([type="submit"], [type="reset"], [type="button"])) {
   font-family: var(--tux-font);
   font-size: var(--tux-text-xs);
   padding: 0.25rem 0.5rem;
@@ -395,173 +226,48 @@ input[type="button"] {
   line-height: 1.5;
 }
 
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
+:is(button, input[type="submit"], input[type="button"]):hover {
   background: var(--tux-primary-hover);
 }
 
-button:disabled,
-input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+:is(button, input):disabled { opacity: 0.5; cursor: not-allowed; }
 
-input[type="reset"] {
-  background: var(--tux-interactive-soft);
-  color: var(--tux-text-inverse);
-}
+input[type="reset"] { background: var(--tux-interactive-soft); color: var(--tux-text-inverse); }
+input[type="reset"]:hover { background: var(--tux-interactive); }
 
-input[type="reset"]:hover {
-  background: var(--tux-interactive);
-}
+button[data-variant="ghost"] { background: transparent; color: var(--tux-text-tertiary); }
+button[data-variant="ghost"]:hover { background: var(--tux-bg-raised); }
+button[data-variant="danger"] { background: var(--tux-error); }
+button[data-variant="danger"]:hover { background: var(--tux-error-hover); }
+button[data-variant="soft"] { background: var(--tux-interactive-soft); }
+button[data-variant="soft"]:hover { background: var(--tux-interactive); }
 
-/* ghost button via role or class */
-button[data-variant="ghost"] {
-  background: transparent;
-  color: var(--tux-text-tertiary);
-}
+/* -- code -- */
+code { font-family: var(--tux-font); font-size: inherit; background: var(--tux-bg-raised); padding: 0.0625rem 0.25rem; color: var(--tux-text-secondary); }
+pre { background: var(--tux-bg-surface); border: 1px solid var(--tux-border); padding: 0.5rem; overflow-x: auto; margin-bottom: 0.5rem; font-size: var(--tux-text-xs); line-height: 1.6; }
+pre code { background: none; padding: 0; }
+kbd { font-family: var(--tux-font); font-size: var(--tux-text-micro); padding: 0.0625rem 0.25rem; border: 1px solid var(--tux-border-strong); background: var(--tux-bg-raised); color: var(--tux-text-secondary); }
+samp { font-family: var(--tux-font); color: var(--tux-text-tertiary); }
 
-button[data-variant="ghost"]:hover {
-  background: var(--tux-bg-raised);
-}
+/* -- lists -- */
+:is(ul, ol) { padding-left: 1.25rem; margin-bottom: 0.5rem; color: var(--tux-text-secondary); }
+li { margin-bottom: 0.125rem; }
+li::marker { color: var(--tux-text-muted); }
+dl { margin-bottom: 0.5rem; }
+dt { color: var(--tux-text-tertiary); font-weight: 400; }
+dd { color: var(--tux-text); margin-bottom: 0.25rem; margin-left: 0; }
 
-button[data-variant="danger"] {
-  background: var(--tux-error);
-}
+/* -- details -- */
+details { border: 1px solid var(--tux-border); margin-bottom: 0.5rem; }
+summary { cursor: pointer; padding: 0.25rem 0.5rem; background: var(--tux-bg-raised); color: var(--tux-text-tertiary); font-size: var(--tux-text-xs); list-style: none; user-select: none; }
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "\25b6\00a0"; font-size: 0.5em; vertical-align: middle; display: inline-block; transition: transform 0.1s; }
+details[open] > summary::before { transform: rotate(90deg); }
+details[open] > summary { border-bottom: 1px solid var(--tux-border-subtle); }
+details > :not(summary) { padding: 0.5rem; }
 
-button[data-variant="danger"]:hover {
-  background: var(--tux-error-hover);
-}
-
-button[data-variant="soft"] {
-  background: var(--tux-interactive-soft);
-}
-
-button[data-variant="soft"]:hover {
-  background: var(--tux-interactive);
-}
-
-/* ============================================================
-   9. code & preformatted
-   ============================================================ */
-code {
-  font-family: var(--tux-font);
-  font-size: inherit;
-  background: var(--tux-bg-raised);
-  padding: 0.0625rem 0.25rem;
-  color: var(--tux-text-secondary);
-}
-
-pre {
-  background: var(--tux-bg-surface);
-  border: 1px solid var(--tux-border);
-  padding: 0.5rem;
-  overflow-x: auto;
-  margin-bottom: 0.5rem;
-  font-size: var(--tux-text-xs);
-  line-height: 1.6;
-}
-
-pre code {
-  background: none;
-  padding: 0;
-}
-
-kbd {
-  font-family: var(--tux-font);
-  font-size: var(--tux-text-micro);
-  padding: 0.0625rem 0.25rem;
-  border: 1px solid var(--tux-border-strong);
-  background: var(--tux-bg-raised);
-  color: var(--tux-text-secondary);
-}
-
-samp {
-  font-family: var(--tux-font);
-  color: var(--tux-text-tertiary);
-}
-
-/* ============================================================
-   10. lists
-   ============================================================ */
-ul, ol {
-  padding-left: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--tux-text-secondary);
-}
-
-li {
-  margin-bottom: 0.125rem;
-}
-
-li::marker {
-  color: var(--tux-text-muted);
-}
-
-dl {
-  margin-bottom: 0.5rem;
-}
-
-dt {
-  color: var(--tux-text-tertiary);
-  font-weight: 400;
-}
-
-dd {
-  color: var(--tux-text);
-  margin-bottom: 0.25rem;
-  margin-left: 0;
-}
-
-/* ============================================================
-   11. details / summary (accordion)
-   ============================================================ */
-details {
-  border: 1px solid var(--tux-border);
-  margin-bottom: 0.5rem;
-}
-
-summary {
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  background: var(--tux-bg-raised);
-  color: var(--tux-text-tertiary);
-  font-size: var(--tux-text-xs);
-  list-style: none;
-  user-select: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::before {
-  content: "\25b6\00a0"; /* ▶ */
-  font-size: 0.5em;
-  vertical-align: middle;
-  display: inline-block;
-  transition: transform 0.1s;
-}
-
-details[open] > summary::before {
-  transform: rotate(90deg);
-}
-
-details[open] > summary {
-  border-bottom: 1px solid var(--tux-border-subtle);
-}
-
-details > :not(summary) {
-  padding: 0.5rem;
-}
-
-/* ============================================================
-   12. alerts (via data-attribute on any block)
-   ============================================================ */
-[role="alert"],
-.alert,
-[data-alert] {
+/* -- alerts -- */
+:is([role="alert"], .alert, [data-alert]) {
   font-size: var(--tux-text-xs);
   padding: 0.25rem 0.5rem;
   margin-bottom: 0.5rem;
@@ -570,148 +276,42 @@ details > :not(summary) {
   border: 1px solid transparent;
 }
 
-[data-alert="error"] {
-  background: var(--tux-error-subtle);
-  color: var(--tux-error);
-  border-color: var(--tux-error-soft);
-}
+[data-alert="error"]   { background: var(--tux-error-subtle);   color: var(--tux-error);   border-color: var(--tux-error-soft); }
+[data-alert="success"] { background: var(--tux-success-subtle); color: var(--tux-success); border-color: var(--tux-success-muted); }
+[data-alert="warning"] { background: var(--tux-warning-subtle); color: var(--tux-warning); border-color: var(--tux-warning-soft); }
+[data-alert="info"]    { background: var(--tux-primary-subtle); color: var(--tux-primary); border-color: var(--tux-primary-soft); }
 
-[data-alert="success"] {
-  background: var(--tux-success-subtle);
-  color: var(--tux-success);
-  border-color: var(--tux-success-muted);
-}
-
-[data-alert="warning"] {
-  background: var(--tux-warning-subtle);
-  color: var(--tux-warning);
-  border-color: var(--tux-warning-soft);
-}
-
-[data-alert="info"] {
-  background: var(--tux-primary-subtle);
-  color: var(--tux-primary);
-  border-color: var(--tux-primary-soft);
-}
-
-/* ============================================================
-   13. progress & meter
-   ============================================================ */
+/* -- progress & meter -- */
 progress {
-  appearance: none;
-  width: 100%;
-  height: 6px;
-  border: none;
-  border-radius: var(--tux-radius-sm);
-  overflow: hidden;
-  background: var(--tux-bg-muted);
+  appearance: none; width: 100%; height: 6px;
+  border: none; border-radius: var(--tux-radius-sm);
+  overflow: hidden; background: var(--tux-bg-muted);
 }
-
-progress::-webkit-progress-bar {
-  background: var(--tux-bg-muted);
-  border-radius: var(--tux-radius-sm);
-}
-
-progress::-webkit-progress-value {
-  background: var(--tux-primary-soft);
-  border-radius: var(--tux-radius-sm);
-}
-
-progress::-moz-progress-bar {
-  background: var(--tux-primary-soft);
-  border-radius: var(--tux-radius-sm);
-}
+progress::-webkit-progress-bar { background: var(--tux-bg-muted); border-radius: var(--tux-radius-sm); }
+progress::-webkit-progress-value { background: var(--tux-primary-soft); border-radius: var(--tux-radius-sm); }
+progress::-moz-progress-bar { background: var(--tux-primary-soft); border-radius: var(--tux-radius-sm); }
 
 meter {
-  appearance: none;
-  width: 100%;
-  height: 6px;
-  border: none;
-  border-radius: var(--tux-radius-sm);
-  overflow: hidden;
-  background: var(--tux-bg-muted);
+  appearance: none; width: 100%; height: 6px;
+  border: none; border-radius: var(--tux-radius-sm);
+  overflow: hidden; background: var(--tux-bg-muted);
 }
+meter::-webkit-meter-bar { background: var(--tux-bg-muted); border-radius: var(--tux-radius-sm); border: none; }
+meter::-webkit-meter-optimum-value { background: var(--tux-success-soft); }
+meter::-webkit-meter-suboptimum-value { background: var(--tux-warning-soft); }
+meter::-webkit-meter-even-less-good-value { background: var(--tux-error-soft); }
 
-meter::-webkit-meter-bar {
-  background: var(--tux-bg-muted);
-  border-radius: var(--tux-radius-sm);
-  border: none;
-}
+/* -- misc elements -- */
+hr { border: none; border-top: 1px solid var(--tux-border); margin: 0.75rem 0; }
+blockquote { border-left: 2px solid var(--tux-border-strong); padding: 0.25rem 0.5rem; margin-bottom: 0.5rem; color: var(--tux-text-secondary); font-style: italic; }
+:is(img, video, canvas, svg) { max-width: 100%; height: auto; display: block; }
+figure { margin-bottom: 0.5rem; }
+figcaption { font-size: var(--tux-text-micro); color: var(--tux-text-muted); margin-top: 0.25rem; }
+mark { background: var(--tux-warning-subtle); color: var(--tux-warning-muted); padding: 0 0.125rem; }
+del { color: var(--tux-error); text-decoration: line-through; }
+ins { color: var(--tux-success); text-decoration: none; border-bottom: 1px solid var(--tux-success); }
 
-meter::-webkit-meter-optimum-value {
-  background: var(--tux-success-soft);
-}
-
-meter::-webkit-meter-suboptimum-value {
-  background: var(--tux-warning-soft);
-}
-
-meter::-webkit-meter-even-less-good-value {
-  background: var(--tux-error-soft);
-}
-
-/* ============================================================
-   14. hr & separators
-   ============================================================ */
-hr {
-  border: none;
-  border-top: 1px solid var(--tux-border);
-  margin: 0.75rem 0;
-}
-
-/* ============================================================
-   15. blockquote
-   ============================================================ */
-blockquote {
-  border-left: 2px solid var(--tux-border-strong);
-  padding: 0.25rem 0.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--tux-text-secondary);
-  font-style: italic;
-}
-
-/* ============================================================
-   16. figure & media
-   ============================================================ */
-img, video, canvas, svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-figure {
-  margin-bottom: 0.5rem;
-}
-
-figcaption {
-  font-size: var(--tux-text-micro);
-  color: var(--tux-text-muted);
-  margin-top: 0.25rem;
-}
-
-/* ============================================================
-   17. mark, del, ins
-   ============================================================ */
-mark {
-  background: var(--tux-warning-subtle);
-  color: var(--tux-warning-muted);
-  padding: 0 0.125rem;
-}
-
-del {
-  color: var(--tux-error);
-  text-decoration: line-through;
-}
-
-ins {
-  color: var(--tux-success);
-  text-decoration: none;
-  border-bottom: 1px solid var(--tux-success);
-}
-
-/* ============================================================
-   18. dialog (modal)
-   ============================================================ */
+/* -- dialog -- */
 dialog {
   font-family: var(--tux-font);
   font-size: var(--tux-text-xs);
@@ -723,86 +323,26 @@ dialog {
   width: calc(100% - 2rem);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }
+dialog::backdrop { background: rgba(0, 0, 0, 0.5); }
+dialog > header { padding: 0.5rem 1rem; border-bottom: 1px solid var(--tux-border-subtle); background: var(--tux-bg-raised); font-size: var(--tux-text-sm); font-weight: 600; }
+dialog > footer { padding: 0.5rem 1rem; border-top: 1px solid var(--tux-border-subtle); display: flex; justify-content: flex-end; gap: 0.5rem; }
+dialog > :not(header):not(footer) { padding: 1rem; }
 
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-dialog > header {
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--tux-border-subtle);
-  background: var(--tux-bg-raised);
-  font-size: var(--tux-text-sm);
-  font-weight: 600;
-}
-
-dialog > footer {
-  padding: 0.5rem 1rem;
-  border-top: 1px solid var(--tux-border-subtle);
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-
-dialog > :not(header):not(footer) {
-  padding: 1rem;
-}
-
-/* ============================================================
-   19. utility: data-grid for summary cards
-   ============================================================ */
-[data-grid] {
-  display: grid;
-  gap: 0.5rem;
-}
-
+/* -- grid utility -- */
+[data-grid] { display: grid; gap: 0.5rem; }
 [data-grid="2"] { grid-template-columns: repeat(2, 1fr); }
 [data-grid="3"] { grid-template-columns: repeat(3, 1fr); }
 [data-grid="4"] { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 640px) { :is([data-grid="3"], [data-grid="4"]) { grid-template-columns: repeat(2, 1fr); } }
 
-@media (max-width: 640px) {
-  [data-grid="3"],
-  [data-grid="4"] {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* -- a11y -- */
+:focus-visible { outline: 2px solid var(--tux-primary); outline-offset: 1px; }
+::selection { background: var(--tux-primary-subtle); color: var(--tux-primary-strong); }
 
-/* ============================================================
-   20. accessibility & interaction
-   ============================================================ */
-:focus-visible {
-  outline: 2px solid var(--tux-primary);
-  outline-offset: 1px;
-}
-
-::selection {
-  background: var(--tux-primary-subtle);
-  color: var(--tux-primary-strong);
-}
-
-/* ============================================================
-   21. print
-   ============================================================ */
+/* -- print -- */
 @media print {
-  body {
-    background: white;
-    color: black;
-    font-size: 10pt;
-  }
-
-  body > header,
-  body > footer,
-  nav {
-    display: none;
-  }
-
-  main {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  section, article, aside {
-    border-color: #ccc;
-    break-inside: avoid;
-  }
+  body { background: #fff; color: #000; font-size: 10pt; }
+  :is(body > header, body > footer, nav) { display: none; }
+  main { max-width: 100%; padding: 0; }
+  :is(section, article, aside) { border-color: #ccc; break-inside: avoid; }
 }

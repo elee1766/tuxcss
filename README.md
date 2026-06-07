@@ -10,19 +10,16 @@ vendor it. copy the file into your project, change what you want.
 
 ```
 curl -O https://github.com/elee1766/tuxcss/releases/latest/download/tux.css
-```
-
-minified:
-
-```
 curl -O https://github.com/elee1766/tuxcss/releases/latest/download/tux.min.css
 ```
 
-or link directly (fine for prototyping, vendor for production):
+or link from cdn:
 
 ```html
-<link rel="stylesheet" href="https://elee1766.github.io/tuxcss/tux.css">
+<link rel="stylesheet" href="https://elee1766.github.io/tuxcss/tux.min.css">
 ```
+
+sri hashes for both files are on the [preview page](https://elee1766.github.io/tuxcss) and auto-generated on each build.
 
 ## what it styles
 

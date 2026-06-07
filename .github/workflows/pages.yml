@@ -23,6 +23,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: build minified css
+        run: npx lightningcss-cli --minify tux.css -o tux.min.css
+
+      - name: generate sri hashes and inject into index.html
+        run: |
+          SRI_FULL=$(cat tux.css | openssl dgst -sha384 -binary | openssl base64 -A)
+          SRI_MIN=$(cat tux.min.css | openssl dgst -sha384 -binary | openssl base64 -A)
+          sed -i "s|__SRI_FULL__|sha384-${SRI_FULL}|g" index.html
+          sed -i "s|__SRI_MIN__|sha384-${SRI_MIN}|g" index.html
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
