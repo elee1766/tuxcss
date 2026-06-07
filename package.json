@@ -1,0 +1,24 @@
+{
+  "name": "tuxcss",
+  "version": "0.1.0",
+  "description": "a classless css framework for terminal-utilitarian interfaces",
+  "main": "tux.css",
+  "style": "tux.css",
+  "files": ["tux.css"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elee1766/tuxcss"
+  },
+  "homepage": "https://elee1766.github.io/tuxcss",
+  "keywords": [
+    "css",
+    "classless",
+    "monospace",
+    "terminal",
+    "brutalist",
+    "minimal",
+    "framework"
+  ],
+  "author": "elee1766",
+  "license": "MIT"
+}

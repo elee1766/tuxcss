@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tux.css -- terminal-utilitarian css</title>
+  <link rel="stylesheet" href="tux.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" aria-current="page">tux.css</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#components">components</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#forms">forms</a>
+      <span style="color: var(--tux-text-faint)">/</span>
+      <a href="#layout">layout</a>
+    </nav>
+    <nav>
+      <a href="https://github.com/elee1766/tuxcss">github</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- hero -->
+    <section>
+      <header>
+        <span>about</span>
+      </header>
+      <div>
+        <h1>tux.css</h1>
+        <p>a classless css framework for terminal-utilitarian interfaces.
+           monospaced, lowercase, borderline-brutalist.
+           drop it on semantic html and go.</p>
+        <p><strong>~4kb gzipped.</strong> no javascript. no classes required. just semantic html.</p>
+        <pre><code>&lt;link rel="stylesheet" href="https://elee1766.github.io/tuxcss/tux.css"&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- typography -->
+    <h2 id="typography">typography</h2>
+
+    <section>
+      <header><span>headings &amp; text</span></header>
+      <div>
+        <h1>h1 -- primary heading</h1>
+        <h2>h2 -- section heading</h2>
+        <h3>h3 -- subsection heading</h3>
+        <h4>h4 -- label heading</h4>
+        <h5>h5 -- minor heading</h5>
+        <h6>h6 -- smallest heading</h6>
+        <hr>
+        <p>this is a paragraph. the interface prioritizes <strong>data density</strong> over whitespace.
+           every pixel serves a purpose. prefer compact layouts that show more <em>information</em>
+           without scrolling.</p>
+        <p>secondary text uses a slightly muted color. <small>small text is even more subtle,
+           used for legends and annotations.</small></p>
+        <p>inline elements: <code>code</code>, <kbd>kbd</kbd>, <samp>samp</samp>,
+           <mark>mark</mark>, <del>deleted</del>, <ins>inserted</ins>,
+           <a href="#">link</a>.</p>
+      </div>
+    </section>
+
+    <!-- blockquote -->
+    <section>
+      <header><span>blockquote</span></header>
+      <div>
+        <blockquote>
+          a monospaced, lowercase, borderline-brutalist utility interface that prioritizes
+          information density and visual uniformity over polish.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- lists -->
+    <section>
+      <header><span>lists</span></header>
+      <div>
+        <div data-grid="2">
+          <div>
+            <h4>unordered</h4>
+            <ul>
+              <li>monospace everything</li>
+              <li>lowercase text</li>
+              <li>no rounded corners</li>
+              <li>no shadows</li>
+            </ul>
+          </div>
+          <div>
+            <h4>ordered</h4>
+            <ol>
+              <li>add the stylesheet</li>
+              <li>write semantic html</li>
+              <li>ship it</li>
+            </ol>
+          </div>
+        </div>
+        <h4>definition list</h4>
+        <dl>
+          <dt>classless</dt>
+          <dd>styles semantic html elements directly. no class names needed.</dd>
+          <dt>terminal-utilitarian</dt>
+          <dd>monospaced, data-dense, lowercase. looks like a well-designed terminal app in a browser.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- code -->
+    <section>
+      <header><span>code</span></header>
+      <div>
+        <p>inline: <code>const x = 42;</code></p>
+        <pre><code>// preformatted code block
+function greet(name) {
+  return `hello, ${name}`;
+}
+
+// all text is monospace anyway
+console.log(greet("world"));</code></pre>
+      </div>
+    </section>
+
+    <!-- components -->
+    <h2 id="components">components</h2>
+
+    <!-- alerts -->
+    <section>
+      <header><span>alerts</span></header>
+      <div>
+        <div data-alert="info" role="alert">info -- data refresh scheduled for next cycle.</div>
+        <br>
+        <div data-alert="success">success -- filesystem added successfully.</div>
+        <br>
+        <div data-alert="warning">warning -- disk usage above 75% threshold.</div>
+        <br>
+        <div data-alert="error">error -- scrub found 3 checksum mismatches.</div>
+      </div>
+    </section>
+
+    <!-- buttons -->
+    <section>
+      <header><span>buttons</span></header>
+      <div>
+        <p style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+          <button>primary</button>
+          <button data-variant="soft">soft</button>
+          <button data-variant="danger">danger</button>
+          <button data-variant="ghost">ghost</button>
+          <button disabled>disabled</button>
+        </p>
+        <br>
+        <p style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+          <button>+ add</button>
+          <button data-variant="ghost">refresh</button>
+          <button data-variant="ghost">settings</button>
+          <button data-variant="danger">x</button>
+        </p>
+      </div>
+    </section>
+
+    <!-- progress & meter -->
+    <section>
+      <header><span>progress &amp; meter</span></header>
+      <div>
+        <h4>progress</h4>
+        <progress value="25" max="100"></progress>
+        <br>
+        <progress value="65" max="100"></progress>
+        <br>
+        <progress value="90" max="100"></progress>
+        <br><br>
+        <h4>meter</h4>
+        <meter min="0" max="100" low="33" high="66" optimum="20" value="25"></meter>
+        <br>
+        <meter min="0" max="100" low="33" high="66" optimum="20" value="72"></meter>
+        <br>
+        <meter min="0" max="100" low="33" high="66" optimum="20" value="95"></meter>
+      </div>
+    </section>
+
+    <!-- details / accordion -->
+    <section>
+      <header><span>details / accordion</span></header>
+      <div>
+        <details>
+          <summary>filesystem info</summary>
+          <p>path: /data<br>
+             label: data-drive<br>
+             devices: 2<br>
+             raid profile: raid1</p>
+        </details>
+        <details>
+          <summary>scrub status</summary>
+          <p>status: idle<br>
+             last run: 2024-01-15 14:30<br>
+             errors: none</p>
+        </details>
+        <details open>
+          <summary>allocation (open by default)</summary>
+          <p>total: 500 GiB<br>
+             allocated: 420 GiB<br>
+             unallocated: 80 GiB<br>
+             used: 380 GiB</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- dialog -->
+    <section>
+      <header><span>dialog (modal)</span></header>
+      <div>
+        <button onclick="document.getElementById('demo-dialog').showModal()">open dialog</button>
+        <dialog id="demo-dialog">
+          <header>confirm scrub</header>
+          <div>
+            <p>this will start a full filesystem scrub on /data. the operation may take several minutes.</p>
+            <label>
+              <input type="checkbox"> readonly mode
+            </label>
+          </div>
+          <footer>
+            <button data-variant="ghost" onclick="document.getElementById('demo-dialog').close()">cancel</button>
+            <button onclick="document.getElementById('demo-dialog').close()">start scrub</button>
+          </footer>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- tables -->
+    <h2 id="tables">tables</h2>
+
+    <section>
+      <header>
+        <span>filesystems</span>
+        <button data-variant="ghost">+ add</button>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>path</th>
+            <th>label</th>
+            <th data-align="right">usage</th>
+            <th data-align="right">subvols</th>
+            <th data-align="right">errors</th>
+            <th>scrub</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">/data</a></td>
+            <td>data-drive</td>
+            <td data-align="right">12.5 GiB / 50 GiB</td>
+            <td data-align="right">12</td>
+            <td data-align="right">0</td>
+            <td><span style="color: var(--tux-success)">ok</span></td>
+            <td data-align="right"><button data-variant="ghost">x</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">/home</a></td>
+            <td>home</td>
+            <td data-align="right">45.2 GiB / 50 GiB</td>
+            <td data-align="right">8</td>
+            <td data-align="right" style="color: var(--tux-error)">2</td>
+            <td><span style="color: var(--tux-primary)">running</span></td>
+            <td data-align="right"><button data-variant="ghost">x</button></td>
+          </tr>
+          <tr>
+            <td><a href="#">/backup</a></td>
+            <td>backup-pool</td>
+            <td data-align="right">890 GiB / 2 TiB</td>
+            <td data-align="right">45</td>
+            <td data-align="right">0</td>
+            <td><span style="color: var(--tux-text-muted)">idle</span></td>
+            <td data-align="right"><button data-variant="ghost">x</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- stat table (key-value) -->
+    <div data-grid="2">
+      <section>
+        <header><span>filesystem info</span></header>
+        <table>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-tertiary); width: 6rem">path</td>
+              <td>/data</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">label</td>
+              <td>data-drive</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">uuid</td>
+              <td>a1b2c3d4-e5f6-7890-abcd-ef1234567890</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">devices</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">profile</td>
+              <td>raid1</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <header><span>last scrub</span></header>
+        <table>
+          <tbody>
+            <tr>
+              <td style="color: var(--tux-text-tertiary); width: 6rem">status</td>
+              <td><span style="color: var(--tux-success)">ok</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">started</td>
+              <td>2024-01-15 14:30</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">duration</td>
+              <td>2m 15s</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">scrubbed</td>
+              <td>50 GiB</td>
+            </tr>
+            <tr>
+              <td style="color: var(--tux-text-tertiary)">errors</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- summary cards -->
+    <h2 id="layout">layout</h2>
+
+    <h3>summary cards (grid)</h3>
+    <div data-grid="4">
+      <section>
+        <header><span>subvolumes</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm)">12</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>backups</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm)">45</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>errors</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm); color: var(--tux-success)">0</strong>
+        </div>
+      </section>
+      <section>
+        <header><span>scrub</span></header>
+        <div>
+          <strong style="font-size: var(--tux-text-sm); color: var(--tux-success)">ok</strong>
+        </div>
+      </section>
+    </div>
+
+    <!-- forms -->
+    <h2 id="forms">forms</h2>
+
+    <section>
+      <header><span>add filesystem</span></header>
+      <div>
+        <div data-grid="2">
+          <div>
+            <label for="path">path</label>
+            <input type="text" id="path" placeholder="/mnt/data" value="/data">
+          </div>
+          <div>
+            <label for="label">label</label>
+            <input type="text" id="label" placeholder="optional label" value="data-drive">
+          </div>
+        </div>
+        <br>
+        <div data-grid="2">
+          <div>
+            <label for="email">email</label>
+            <input type="email" id="email" placeholder="admin@example.com">
+          </div>
+          <div>
+            <label for="interval">refresh interval (sec)</label>
+            <input type="number" id="interval" value="30" min="5" max="300">
+          </div>
+        </div>
+        <br>
+        <label for="notes">notes</label>
+        <textarea id="notes" placeholder="optional notes about this filesystem..."></textarea>
+        <br><br>
+        <label for="profile">raid profile</label>
+        <select id="profile">
+          <option>single</option>
+          <option selected>raid1</option>
+          <option>raid5</option>
+          <option>raid6</option>
+          <option>raid10</option>
+        </select>
+        <br><br>
+        <fieldset>
+          <legend>options</legend>
+          <label><input type="checkbox" checked> enable auto-refresh</label>
+          <label><input type="checkbox"> readonly mode</label>
+          <label><input type="radio" name="units" checked> binary (GiB)</label>
+          <label><input type="radio" name="units"> decimal (GB)</label>
+        </fieldset>
+        <br>
+        <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+          <button data-variant="ghost">cancel</button>
+          <button>add</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- settings pattern -->
+    <section>
+      <header>
+        <span>ui settings</span>
+        <small>display preferences saved to your browser</small>
+      </header>
+      <table>
+        <tbody>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">number format</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">human</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">raw</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">byte units</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">binary</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">decimal</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td style="color: var(--tux-text-tertiary)">auto refresh</td>
+            <td data-align="right">
+              <span style="display: inline-flex; border: 1px solid var(--tux-border-strong); border-radius: var(--tux-radius-sm); overflow: hidden;">
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-bg-surface); color: var(--tux-text-tertiary); cursor: pointer;">off</span>
+                <span style="padding: 0.25rem 0.5rem; background: var(--tux-interactive); color: var(--tux-text-inverse); cursor: pointer;">on</span>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- figure -->
+    <section>
+      <header><span>media</span></header>
+      <div>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='80' fill='%23f3f4f6'%3E%3Crect width='400' height='80'/%3E%3Ctext x='200' y='44' text-anchor='middle' fill='%239ca3af' font-family='monospace' font-size='12'%3Eplaceholder image%3C/text%3E%3C/svg%3E" alt="placeholder">
+          <figcaption>fig 1. placeholder image (svg)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- color palette -->
+    <h2 id="colors">color palette</h2>
+
+    <section>
+      <header><span>semantic colors</span></header>
+      <div>
+        <div data-grid="4">
+          <div>
+            <h4>backgrounds</h4>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="background: var(--tux-bg-base); padding: 0.25rem 0.5rem; border: 1px solid var(--tux-border);">bg-base</div>
+              <div style="background: var(--tux-bg-surface); padding: 0.25rem 0.5rem; border: 1px solid var(--tux-border);">bg-surface</div>
+              <div style="background: var(--tux-bg-raised); padding: 0.25rem 0.5rem; border: 1px solid var(--tux-border);">bg-raised</div>
+              <div style="background: var(--tux-bg-muted); padding: 0.25rem 0.5rem; border: 1px solid var(--tux-border);">bg-muted</div>
+              <div style="background: var(--tux-bg-overlay); padding: 0.25rem 0.5rem; color: var(--tux-text-inverse);">bg-overlay</div>
+            </div>
+          </div>
+          <div>
+            <h4>primary</h4>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="background: var(--tux-primary); padding: 0.25rem 0.5rem; color: white;">primary</div>
+              <div style="background: var(--tux-primary-hover); padding: 0.25rem 0.5rem; color: white;">primary-hover</div>
+              <div style="background: var(--tux-primary-soft); padding: 0.25rem 0.5rem; color: white;">primary-soft</div>
+              <div style="background: var(--tux-primary-subtle); padding: 0.25rem 0.5rem;">primary-subtle</div>
+            </div>
+          </div>
+          <div>
+            <h4>semantic</h4>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="background: var(--tux-success-subtle); padding: 0.25rem 0.5rem; color: var(--tux-success);">success</div>
+              <div style="background: var(--tux-warning-subtle); padding: 0.25rem 0.5rem; color: var(--tux-warning);">warning</div>
+              <div style="background: var(--tux-error-subtle); padding: 0.25rem 0.5rem; color: var(--tux-error);">error</div>
+            </div>
+          </div>
+          <div>
+            <h4>text</h4>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <div style="padding: 0.25rem 0.5rem; color: var(--tux-text);">text-default</div>
+              <div style="padding: 0.25rem 0.5rem; color: var(--tux-text-secondary);">text-secondary</div>
+              <div style="padding: 0.25rem 0.5rem; color: var(--tux-text-tertiary);">text-tertiary</div>
+              <div style="padding: 0.25rem 0.5rem; color: var(--tux-text-muted);">text-muted</div>
+              <div style="padding: 0.25rem 0.5rem; color: var(--tux-text-faint);">text-faint</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>tux.css -- terminal-utilitarian css. <a href="https://github.com/elee1766/tuxcss">source on github</a>.</p>
+  </footer>
+
+</body>
+</html>
