@@ -264,7 +264,7 @@ textarea,
 select {
   font-family: var(--tux-font);
   font-size: var(--tux-text-xs);
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.5rem;
   border: 1px solid var(--tux-border-strong);
   border-radius: 0;
   background: var(--tux-bg-surface);
@@ -272,6 +272,7 @@ select {
   width: 100%;
   outline: none;
   appearance: none;
+  line-height: 1.5;
 }
 
 :is(input, textarea, select):focus {
