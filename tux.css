@@ -514,48 +514,51 @@ dialog > :not(header):not(footer) { padding: 1rem; }
 }
 
 /* -- toggle switch -- */
-[role="switch"] {
-  position: relative;
+/* usage: <label data-switch><input type="checkbox"> label text</label> */
+[data-switch] {
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
   gap: 0.5rem;
+  cursor: pointer;
   font-size: var(--tux-text-xs);
   color: var(--tux-text);
+  user-select: none;
 }
 
-[role="switch"]::before {
-  content: "";
-  width: 2rem;
+[data-switch] input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 1.75rem;
   height: 1rem;
-  border-radius: 0.5rem;
   background: var(--tux-bg-muted);
   border: 1px solid var(--tux-border-strong);
-  transition: background 0.15s;
+  border-radius: 0.5rem;
+  cursor: pointer;
   flex-shrink: 0;
+  margin: 0;
+  transition: background 0.15s;
 }
 
-[role="switch"]::after {
+[data-switch] input[type="checkbox"]::after {
   content: "";
   position: absolute;
-  left: 2px;
-  width: 0.75rem;
-  height: 0.75rem;
+  top: 1px;
+  left: 1px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
   background: var(--tux-text-muted);
   transition: transform 0.15s;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-[role="switch"][aria-checked="true"]::before {
+[data-switch] input[type="checkbox"]:checked {
   background: var(--tux-primary);
   border-color: var(--tux-primary);
 }
 
-[role="switch"][aria-checked="true"]::after {
+[data-switch] input[type="checkbox"]:checked::after {
   background: var(--tux-text-inverse);
-  transform: translateY(-50%) translateX(1rem);
+  transform: translateX(0.75rem);
 }
 
 /* -- chips / badges -- */

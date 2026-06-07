@@ -38,7 +38,7 @@ plain html elements. no classes.
 - `[data-layout]` -- sidebar-left/sidebar-right/two-column/three-column
 - `[role="tablist"]` / `[role="tab"]` / `[role="tabpanel"]` -- aria tab panels
 - `[role="toolbar"]` -- button toolbar with aria-pressed
-- `[role="switch"]` -- toggle switch
+- `[data-switch]` -- toggle switch (label wrapping checkbox)
 - `[aria-invalid]` / `[aria-busy]` / `[aria-disabled]` -- form & state styling
 - `[aria-sort]` -- table sort indicators
 - `[aria-expanded]` -- expand/collapse indicators
