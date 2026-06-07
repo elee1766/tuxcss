@@ -14,10 +14,10 @@
 
 /* light (default) -- warm gruvbox-inspired */
 :root, [data-theme="light"] {
-  --tux-bg-base: #f2e5bc;
-  --tux-bg-surface: #fbf1c7;
-  --tux-bg-raised: #ebdbb2;
-  --tux-bg-muted: #d5c4a1;
+  --tux-bg-base: #efebe0;
+  --tux-bg-surface: #f7f4ed;
+  --tux-bg-raised: #e8e4d9;
+  --tux-bg-muted: #d5d0c4;
   --tux-bg-overlay: #282828;
   --tux-text: #3c3836;
   --tux-text-secondary: #504945;
